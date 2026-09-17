@@ -136,11 +136,13 @@ export interface Person {
   photoAlt: string;
   resumeUrl: string;
   location: string;
-  availability: string;
+  /** Short factual line above the name — what the work is, not what's wanted. */
+  kicker: string;
+  /** One-line description of the problem areas the work covers. */
+  focus: string;
   email: string;
   /** Intentionally omitted from the rendered page — see README. */
   phone?: string;
-  lookingFor: string;
   socials: SocialLink[];
 }
 

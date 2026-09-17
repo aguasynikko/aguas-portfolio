@@ -14,7 +14,7 @@ export function Contact() {
         index="07"
         eyebrow="Contact"
         title="Let's talk."
-        lead={person.lookingFor}
+        lead="Questions about the research, the code, or anything else on this site — my inbox is open."
       />
 
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">

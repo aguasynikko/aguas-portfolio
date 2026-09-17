@@ -22,7 +22,7 @@ export const person: Person = {
   tagline:
     "I build computer-vision and retrieval systems for healthcare — two IEEE papers, and production software that ships.",
   bio: [
-    "I'm a Computer Science student at Mapúa University specializing in Artificial Intelligence, finishing in October 2026. My work sits where research meets production: medical imaging models that hold up to clinical scrutiny, retrieval systems grounded in real guidelines, and the full-stack products that put them in front of users.",
+    "I'm a Computer Science student at Mapúa University specializing in Artificial Intelligence. My work sits where research meets production: medical imaging models that hold up to clinical scrutiny, retrieval systems grounded in real guidelines, and the full-stack products that put them in front of users.",
     "I've published two IEEE papers — one first-authored on multi-class kidney abnormality segmentation from CT scans, another on a retrieval-augmented chatbot for atrial-fibrillation guidelines. Alongside the research, I shipped 15+ production modules for an internal platform serving 30+ people, architecting the data layer and enforcing role-based access at the database level.",
     "What I care about is the gap between a model that scores well and a system someone can actually trust. That usually means evaluation you can defend, latency budgets you can meet, and interfaces that don't hide uncertainty.",
   ],
@@ -30,13 +30,13 @@ export const person: Person = {
   photoAlt: "Portrait of Yñikko Arzee Neo Aguas",
   resumeUrl: "/resume.pdf",
   location: "Makati City, Philippines",
-  availability: "Graduating Oct. 2026 · Open to new-grad roles",
+  kicker: "Two IEEE papers · Medical imaging & clinical NLP",
+  focus:
+    "Computer vision, retrieval-augmented generation, and full-stack product engineering.",
   email: "aguasynikko6@gmail.com",
   // Present on your CV, deliberately not rendered anywhere on the site:
   // public phone numbers get harvested by scrapers. It stays in the PDF.
   phone: "+63 966 267 8981",
-  lookingFor:
-    "New-grad AI/ML engineering roles — computer vision, RAG, or applied research — and full-stack positions where I can own a feature end to end. Open to work in Metro Manila or remote.",
   socials: [
     {
       label: "Email",

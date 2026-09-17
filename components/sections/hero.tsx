@@ -61,7 +61,7 @@ export function Hero() {
                   aria-hidden
                   className="inline-block size-1.5 rounded-full bg-brass"
                 />
-                {person.availability}
+                {person.kicker}
               </p>
             </Line>
 

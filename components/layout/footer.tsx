@@ -13,7 +13,7 @@ export function Footer() {
             <p className="font-serif text-2xl text-heading">{person.name}</p>
             <p className="label mt-2">{person.location}</p>
             <p className="mt-3 text-sm leading-relaxed text-muted">
-              {person.availability}
+              {person.focus}
             </p>
           </div>
 

@@ -1,4 +1,4 @@
-import { person } from "@/data/resume";
+import { education, person, publications } from "@/data/resume";
 import { Reveal } from "@/components/ui/reveal";
 import { Section, SectionHeading } from "@/components/ui/section";
 
@@ -13,7 +13,7 @@ export function About() {
       />
 
       {/* The portrait lives in the hero now, so this is text-only: bio on the
-          left, the "looking for" callout pinned beside it on wide screens. */}
+          left, focus and a factual record pinned beside it on wide screens. */}
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
         <Reveal className="lg:col-span-7">
           <div className="space-y-4">
@@ -34,15 +34,17 @@ export function About() {
 
         <Reveal delay={0.1} className="lg:col-span-5">
           <div className="border-l border-line-strong pl-5">
-            <p className="label mb-3">What I&apos;m looking for</p>
+            <p className="label mb-3">Focus</p>
             <p className="text-sm leading-relaxed text-body sm:text-base">
-              {person.lookingFor}
+              {person.focus}
             </p>
           </div>
+          {/* Factual record, derived from the data file so it can't go stale. */}
           <dl className="mt-8 space-y-px overflow-hidden border border-line bg-line">
             {[
               { k: "Based in", v: person.location },
-              { k: "Status", v: person.availability },
+              { k: "Published", v: `${publications.length} IEEE papers` },
+              { k: "Studying", v: `${education[0].degree}, ${education[0].school}` },
             ].map((row) => (
               <div
                 key={row.k}
