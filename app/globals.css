@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ---------------------------------------------------------------------
+     NOIR EXECUTIVE — dark is the default and the canonical look.
+     Values are HSL channels (no hsl() wrapper) so Tailwind can apply
+     opacity modifiers like bg-surface/60.
+     --------------------------------------------------------------------- */
+  :root {
+    --base: 0 0% 3.9%; /* #0A0A0A */
+    --surface: 0 0% 7.8%; /* #141414 */
+    --surface-raised: 0 0% 11%; /* #1C1C1C */
+    --line: 0 0% 16.5%; /* #2A2A2A */
+    --line-strong: 0 0% 26%;
+    --muted: 0 0% 54%; /* #8A8A8A */
+    --body: 0 0% 83%; /* #D4D4D4 */
+    --heading: 0 0% 96%; /* #F5F5F5 */
+    --accent: 0 0% 100%; /* pure white, used sparingly */
+    --brass: 38 12% 69%; /* #B8B2A7 */
+    --glow: 0 0% 100%;
+    --grain-opacity: 0.035;
+    --vignette: 0 0% 100%;
+    --vignette-strength: 0.055;
+    color-scheme: dark;
+  }
+
+  /* DAYLIGHT EXECUTIVE — the inverted counterpart. */
+  .light {
+    --base: 60 12% 96%; /* #F5F5F3 */
+    --surface: 60 14% 98%;
+    --surface-raised: 0 0% 100%;
+    --line: 45 8% 85%;
+    --line-strong: 45 6% 72%;
+    --muted: 45 4% 42%;
+    --body: 40 5% 18%;
+    --heading: 40 6% 7%;
+    --accent: 0 0% 4%; /* near-black is the "accent" in daylight */
+    --brass: 38 14% 46%;
+    --glow: 40 10% 30%;
+    --grain-opacity: 0.02;
+    --vignette: 40 10% 20%;
+    --vignette-strength: 0.04;
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Keeps sticky-nav anchors from covering section headings. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-base font-sans text-body antialiased;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif text-heading;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* A single, consistent focus treatment across the whole site. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-base;
+  }
+
+  ::selection {
+    @apply bg-accent text-base;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--base));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--line));
+    border: 2px solid hsl(var(--base));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--line-strong));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Small uppercase monospace label — the site's connective tissue. */
+  .label {
+    @apply font-mono text-[10px] uppercase tracking-label text-muted sm:text-[11px];
+  }
+
+  /* Hairline rule used between sections and inside cards. */
+  .hairline {
+    @apply h-px w-full bg-line;
+  }
+
+  .card {
+    @apply border border-line bg-surface transition-all duration-500 ease-noir;
+  }
+
+  .card-hover {
+    @apply hover:border-line-strong hover:bg-surface-raised hover:shadow-lift;
+  }
+
+  /* Grayscale media that gains life on hover, per the design brief. */
+  .media-noir {
+    @apply grayscale transition-all duration-700 ease-noir;
+  }
+  .group:hover .media-noir {
+    @apply grayscale-[0.35] contrast-[1.08] brightness-110;
+  }
+}
+
+@layer utilities {
+  /* Film-grain overlay. Generated as an inline SVG so there is no network
+     request and no layout cost — it is a single fixed, non-interactive layer. */
+  .grain-layer {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: var(--grain-opacity);
+  }
+
+  /* Faint spotlight behind the hero — light cutting through darkness. */
+  .spotlight {
+    background:
+      radial-gradient(
+        ellipse 80% 50% at 50% -10%,
+        hsl(var(--vignette) / var(--vignette-strength)),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 50% 40% at 80% 20%,
+        hsl(var(--vignette) / calc(var(--vignette-strength) * 0.6)),
+        transparent 65%
+      );
+  }
+
+  .text-gradient-heading {
+    background: linear-gradient(
+      175deg,
+      hsl(var(--heading)) 20%,
+      hsl(var(--heading) / 0.62) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Hero line reveal.
+     Deliberately CSS rather than Framer Motion: the hero headline is the LCP
+     element, and a JS-driven `initial={{opacity:0}}` would server-render it
+     invisible and keep it that way until hydration finishes. A CSS animation
+     starts on the first paint and runs even if JS never loads. The global
+     prefers-reduced-motion rule collapses the duration, and `both` fill leaves
+     the element in its final, visible state. */
+  @keyframes line-rise {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .line-rise {
+    animation: line-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--line-delay, 0s);
+  }
+
+  /* Fades the edges of horizontally scrolling filter rails on mobile. */
+  .mask-fade-x {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 24px,
+      black calc(100% - 24px),
+      transparent
+    );
+  }
+}
