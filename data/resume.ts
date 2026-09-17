@@ -82,8 +82,8 @@ export const navItems: NavItem[] = [
 ];
 
 /* ---------------------------------------------------------------- experience
- * Research entries share the timeline with employment so the record reads as
- * continuous output rather than a single short internship.
+ * Employment only. The research work lives in `publications` and renders in
+ * its own section, so the two are never conflated.
  * ------------------------------------------------------------------------ */
 export const experience: Experience[] = [
   {
@@ -111,56 +111,6 @@ export const experience: Experience[] = [
       },
     ],
   },
-  {
-    id: "research-rag",
-    role: "Research — Clinical NLP",
-    company: "RAG Clinical Guideline Chatbot · IEEE publication",
-    start: "Dec. 2025",
-    end: "Mar. 2026",
-    sortKey: "2025-12",
-    kind: "research",
-    summary:
-      "Retrieval-augmented generation for cardiology decision support, evaluated against clinician-style queries.",
-    achievements: [
-      {
-        text: "Published an IEEE paper on a RAG chatbot answering clinical questions grounded in 100+ pages of ESC atrial-fibrillation guidelines, achieving a BERTScore F1 of 0.835.",
-        tech: ["Python", "Gradio"],
-      },
-      {
-        text: "Built the retrieval pipeline with biomedical embeddings, vector search, and reranking, raising answer faithfulness to 8.75/10 across 20 clinical queries.",
-        tech: ["MedCPT", "FAISS", "BGE"],
-      },
-      {
-        text: "Deployed quantized LLMs to reach 0.7s latency and 7.9 tokens/sec for real-time clinical decision support.",
-        tech: ["Llama-3", "Phi-3", "Qwen3", "Ollama"],
-      },
-    ],
-  },
-  {
-    id: "research-kidney",
-    role: "Research — Medical Imaging",
-    company: "Kidney Abnormality Segmentation · IEEE publication",
-    start: "Aug. 2025",
-    end: "Jan. 2026",
-    sortKey: "2025-08",
-    kind: "research",
-    summary:
-      "First-authored segmentation study on a curated, class-balanced CT dataset.",
-    achievements: [
-      {
-        text: "First-authored an IEEE paper implementing a YOLOv12 architecture to detect and segment cysts, stones, and tumors in CT scans, achieving mAP@0.5 of 0.946 (axial) and 0.885 (coronal).",
-        tech: ["Python", "YOLOv12"],
-      },
-      {
-        text: "Curated and preprocessed a class-balanced dataset of 14,761 axial and coronal CT scans with high-fidelity clinical annotation.",
-        tech: ["Roboflow"],
-      },
-      {
-        text: "Deployed a Streamlit web interface for real-time, privacy-preserving inference and color-coded visualization of abnormalities.",
-        tech: ["Streamlit"],
-      },
-    ],
-  },
 ];
 
 /* ------------------------------------------------------------------ projects
@@ -172,6 +122,7 @@ export const experience: Experience[] = [
 export const projects: Project[] = [
   {
     slug: "edge-ai-food-label",
+    categories: ["Artificial Intelligence", "Software Development"],
     title: "Edge AI Food Label Analysis",
     year: "2026",
     blurb:
@@ -195,6 +146,7 @@ export const projects: Project[] = [
   },
   {
     slug: "kidney-segmentation-app",
+    categories: ["Artificial Intelligence"],
     title: "Kidney Abnormality Segmentation",
     year: "2026",
     blurb:
@@ -209,6 +161,7 @@ export const projects: Project[] = [
   },
   {
     slug: "earthquake-analysis",
+    categories: ["Data Science"],
     title: "Earthquake Data Analysis & Prediction",
     year: "2025",
     blurb:
@@ -223,6 +176,7 @@ export const projects: Project[] = [
   },
   {
     slug: "vault-file-manager",
+    categories: ["Software Development"],
     title: "Vault — File Manager",
     year: "2025",
     blurb:
@@ -235,6 +189,7 @@ export const projects: Project[] = [
   },
   {
     slug: "myapt-dashboard",
+    categories: ["Software Development"],
     title: "MyApt — Apartment Management",
     year: "2025",
     blurb:
@@ -247,6 +202,7 @@ export const projects: Project[] = [
   },
   {
     slug: "heart-disease-risk",
+    categories: ["Data Science", "Artificial Intelligence"],
     title: "Heart Disease Risk Detection",
     year: "2025",
     blurb:

@@ -51,12 +51,20 @@ export interface Experience {
   achievements: Achievement[];
 }
 
+/** Drives the project filter chips. "All" is added by the UI, not stored. */
+export type ProjectCategory =
+  | "Artificial Intelligence"
+  | "Data Science"
+  | "Software Development";
+
 export interface Project {
   slug: string;
   title: string;
   /** One-sentence hook shown on the card. */
   blurb: string;
   highlights: string[];
+  /** A project may sit in more than one category. */
+  categories: ProjectCategory[];
   tech: string[];
   /** Path under /public. Omit to render the generated monogram plate. */
   image?: string;

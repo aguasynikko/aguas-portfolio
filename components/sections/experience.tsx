@@ -17,7 +17,7 @@ export function Experience() {
         index="02"
         eyebrow="Experience"
         title="The case file."
-        lead="Employment and research, on one timeline — the work has run continuously since 2025."
+        lead="Where I've shipped production software."
       />
 
       <ol className="relative">

@@ -5,13 +5,22 @@ import { ArrowUpRight, Github } from "lucide-react";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { projects } from "@/data/resume";
-import type { Project } from "@/data/types";
+import type { Project, ProjectCategory } from "@/data/types";
 import { cn, pad } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Section, SectionHeading } from "@/components/ui/section";
 
 const ALL = "All";
 const EASE = [0.22, 1, 0.36, 1] as const;
+
+/** Fixed, authored filter set — order is intentional, not data-derived. */
+const CATEGORIES: ProjectCategory[] = [
+  "Artificial Intelligence",
+  "Data Science",
+  "Software Development",
+];
+
+type Filter = ProjectCategory | typeof ALL;
 
 /**
  * Fallback thumbnail for projects without an image: a generated plate built
@@ -143,19 +152,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export function Projects() {
   const reduced = useReducedMotion();
-  const [filter, setFilter] = useState<string>(ALL);
+  const [filter, setFilter] = useState<Filter>(ALL);
 
-  // Only offer filters that would actually narrow the set.
-  const filters = useMemo(() => {
-    const counts = new Map<string, number>();
-    projects.forEach((p) =>
-      p.tech.forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1))
-    );
-    const meaningful = [...counts.entries()]
-      .filter(([, n]) => n > 1)
-      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-      .map(([t]) => t);
-    return [ALL, ...meaningful];
+  // Hide a category chip entirely if no project currently claims it.
+  const filters = useMemo<Filter[]>(() => {
+    const used = new Set(projects.flatMap((p) => p.categories));
+    return [ALL, ...CATEGORIES.filter((c) => used.has(c))];
   }, []);
 
   const visible = useMemo(() => {
@@ -164,7 +166,7 @@ export function Projects() {
     );
     return filter === ALL
       ? ordered
-      : ordered.filter((p) => p.tech.includes(filter));
+      : ordered.filter((p) => p.categories.includes(filter));
   }, [filter]);
 
   return (
@@ -179,16 +181,16 @@ export function Projects() {
 
       <div
         role="group"
-        aria-label="Filter projects by technology"
+        aria-label="Filter projects by discipline"
         className="mask-fade-x -mx-6 mb-6 flex gap-2 overflow-x-auto px-6 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
       >
-        {filters.map((tech) => {
-          const isActive = filter === tech;
+        {filters.map((category) => {
+          const isActive = filter === category;
           return (
             <button
-              key={tech}
+              key={category}
               type="button"
-              onClick={() => setFilter(tech)}
+              onClick={() => setFilter(category)}
               aria-pressed={isActive}
               className={cn(
                 "shrink-0 rounded-sm border px-3 py-1.5 font-mono text-[10px] uppercase tracking-label transition-all duration-300 ease-noir",
@@ -197,7 +199,7 @@ export function Projects() {
                   : "border-line bg-transparent text-muted hover:border-line-strong hover:text-heading"
               )}
             >
-              {tech}
+              {category}
             </button>
           );
         })}
