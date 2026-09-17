@@ -41,7 +41,7 @@ export function Publications() {
       </div>
 
       {hasMore && (
-        <Reveal className="mt-12 text-center">
+        <Reveal className="mt-8 text-center">
           <Button asChild variant="ghost">
             <Link href="/publications">
               View all {sorted.length} publications

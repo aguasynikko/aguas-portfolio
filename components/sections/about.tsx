@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { person } from "@/data/resume";
 import { Reveal } from "@/components/ui/reveal";
 import { Section, SectionHeading } from "@/components/ui/section";
@@ -13,56 +12,48 @@ export function About() {
         title="Research that ships."
       />
 
-      <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
-        <Reveal className="lg:col-span-5">
-          <figure className="group relative">
-            <div className="relative aspect-[4/5] overflow-hidden border border-line bg-surface">
-              <Image
-                src={person.photo}
-                alt={person.photoAlt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                priority={false}
-                className="media-noir object-cover object-top"
-              />
-              {/* Keeps the portrait seated in the dark rather than floating. */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/60 via-transparent to-transparent"
-              />
-            </div>
-            <figcaption className="label mt-4 flex items-center justify-between">
-              <span>{person.location}</span>
-              <span aria-hidden>—</span>
-            </figcaption>
-          </figure>
+      {/* The portrait lives in the hero now, so this is text-only: bio on the
+          left, the "looking for" callout pinned beside it on wide screens. */}
+      <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+        <Reveal className="lg:col-span-7">
+          <div className="space-y-4">
+            {person.bio.map((paragraph, i) => (
+              <p
+                key={i}
+                className={
+                  i === 0
+                    ? "leading-relaxed text-body sm:text-lg"
+                    : "text-sm leading-relaxed text-muted sm:text-base"
+                }
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </Reveal>
 
-        <div className="lg:col-span-7">
-          <Reveal delay={0.1}>
-            <div className="space-y-6">
-              {person.bio.map((paragraph, i) => (
-                <p
-                  key={i}
-                  className={
-                    i === 0
-                      ? "text-lg leading-relaxed text-body sm:text-xl"
-                      : "leading-relaxed text-muted"
-                  }
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <div className="mt-12 border-l border-line-strong pl-6">
-              <p className="label mb-4">What I&apos;m looking for</p>
-              <p className="leading-relaxed text-body">{person.lookingFor}</p>
-            </div>
-          </Reveal>
-        </div>
+        <Reveal delay={0.1} className="lg:col-span-5">
+          <div className="border-l border-line-strong pl-5">
+            <p className="label mb-3">What I&apos;m looking for</p>
+            <p className="text-sm leading-relaxed text-body sm:text-base">
+              {person.lookingFor}
+            </p>
+          </div>
+          <dl className="mt-8 space-y-px overflow-hidden border border-line bg-line">
+            {[
+              { k: "Based in", v: person.location },
+              { k: "Status", v: person.availability },
+            ].map((row) => (
+              <div
+                key={row.k}
+                className="flex items-baseline justify-between gap-4 bg-base px-4 py-3"
+              >
+                <dt className="label shrink-0">{row.k}</dt>
+                <dd className="text-right text-sm text-body">{row.v}</dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
       </div>
     </Section>
   );

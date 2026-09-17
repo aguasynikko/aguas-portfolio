@@ -76,32 +76,32 @@ export function PublicationRecord({
     });
 
   return (
-    <article className="group border-b border-line py-10 first:border-t md:py-12">
-      <div className="grid gap-6 md:grid-cols-12 md:gap-8">
+    <article className="group border-b border-line py-7 first:border-t md:py-8">
+      <div className="grid gap-3 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-2">
           <p className="label">Record {pad(index + 1)}</p>
           <p
             aria-hidden
-            className="mt-3 font-mono text-[11px] tracking-label text-muted/60"
+            className="mt-1.5 font-mono text-[11px] tracking-label text-muted/60"
           >
             {pub.year}
           </p>
         </div>
 
         <div className="md:col-span-10">
-          <div className="mb-4 flex flex-wrap items-center gap-3">
+          <div className="mb-3 flex flex-wrap items-center gap-3">
             <Badge variant="outline">{pub.type}</Badge>
             <span className="font-mono text-[11px] uppercase tracking-label text-muted">
               {pub.venue}
             </span>
           </div>
 
-          <h3 className="max-w-3xl text-xl leading-snug transition-colors duration-300 group-hover:text-accent sm:text-2xl">
+          <h3 className="max-w-3xl text-lg leading-snug transition-colors duration-300 group-hover:text-accent sm:text-xl">
             {pub.title}
           </h3>
 
           {/* Author list — the site owner's name is emphasized. */}
-          <p className="mt-4 text-sm leading-relaxed text-muted">
+          <p className="mt-2.5 text-sm leading-relaxed text-muted">
             {pub.authors.map((author, i) => (
               <span key={author}>
                 {i > 0 && <span aria-hidden>, </span>}
@@ -121,7 +121,7 @@ export function PublicationRecord({
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls={panelId}
-            className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-label text-muted transition-colors duration-300 hover:text-heading"
+            className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-label text-muted transition-colors duration-300 hover:text-heading"
           >
             <ChevronDown
               aria-hidden
@@ -144,11 +144,11 @@ export function PublicationRecord({
                 transition={{ duration: 0.5, ease: EASE }}
                 className="overflow-hidden"
               >
-                <div className="max-w-3xl border-l border-line-strong pl-5 pt-6">
-                  <p className="leading-relaxed text-body">{pub.abstract}</p>
+                <div className="max-w-3xl border-l border-line-strong pl-5 pt-4">
+                  <p className="text-sm leading-relaxed text-body">{pub.abstract}</p>
 
                   {pub.highlights && pub.highlights.length > 0 && (
-                    <ul className="mt-5 space-y-2">
+                    <ul className="mt-3 space-y-1.5">
                       {pub.highlights.map((h) => (
                         <li key={h} className="flex gap-3 text-sm text-muted">
                           <span
@@ -162,7 +162,7 @@ export function PublicationRecord({
                   )}
 
                   {pub.tech && pub.tech.length > 0 && (
-                    <ul className="mt-6 flex flex-wrap gap-2">
+                    <ul className="mt-4 flex flex-wrap gap-1.5">
                       {pub.tech.map((t) => (
                         <li key={t}>
                           <Badge>{t}</Badge>
@@ -175,7 +175,7 @@ export function PublicationRecord({
             )}
           </AnimatePresence>
 
-          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-line pt-5">
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-line pt-4">
             {links.map(({ label, href, icon: Icon }) => (
               <a
                 key={label}

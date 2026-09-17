@@ -16,7 +16,7 @@ import type {
  * ======================================================================== */
 
 export const person: Person = {
-  name: "Ynikko Arzee Neo Aguas",
+  name: "Yñikko Arzee Neo Aguas",
   title: "AI Engineer",
   titles: ["AI Engineer", "Data Analyst", "Full-Stack Developer"],
   tagline:
@@ -27,7 +27,7 @@ export const person: Person = {
     "What I care about is the gap between a model that scores well and a system someone can actually trust. That usually means evaluation you can defend, latency budgets you can meet, and interfaces that don't hide uncertainty.",
   ],
   photo: "/ynikko-aguas.jpg",
-  photoAlt: "Portrait of Ynikko Arzee Neo Aguas",
+  photoAlt: "Portrait of Yñikko Arzee Neo Aguas",
   resumeUrl: "/resume.pdf",
   location: "Makati City, Philippines",
   availability: "Graduating Oct. 2026 · Open to new-grad roles",
@@ -270,7 +270,7 @@ export const publications: Publication[] = [
   {
     id: "rag-afib",
     title: "RAG-Based Clinical Guideline Chatbot for Atrial Fibrillation",
-    authors: ["Ynikko Arzee Neo Aguas"], // TODO: add co-authors in citation order
+    authors: ["Yñikko Arzee Neo Aguas"], // TODO: add co-authors in citation order
     venue: "IEEE", // TODO: full conference or journal name
     publisher: "IEEE",
     year: 2026,
@@ -290,7 +290,7 @@ export const publications: Publication[] = [
     id: "kidney-segmentation",
     title:
       "Multi-Class Kidney Abnormality Segmentation in CT Imaging Using a YOLOv12 Architecture",
-    authors: ["Ynikko Arzee Neo Aguas"], // TODO: add co-authors; you are first author
+    authors: ["Yñikko Arzee Neo Aguas"], // TODO: add co-authors; you are first author
     venue: "IEEE", // TODO: full conference or journal name
     publisher: "IEEE",
     year: 2026,

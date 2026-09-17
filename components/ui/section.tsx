@@ -17,11 +17,11 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("scroll-mt-24 py-24 sm:py-32", className)}
+      className={cn("scroll-mt-20 py-14 sm:py-20", className)}
       aria-labelledby={id ? `${id}-heading` : undefined}
     >
       <div className="container">
-        {divider && <div className="hairline mb-16 sm:mb-20" />}
+        {divider && <div className="hairline mb-10 sm:mb-14" />}
         {children}
       </div>
     </section>
@@ -49,10 +49,10 @@ export function SectionHeading({
   action?: ReactNode;
 }) {
   return (
-    <Reveal className="mb-14 sm:mb-20">
-      <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+    <Reveal className="mb-8 sm:mb-10">
+      <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
-          <p className="label mb-5 flex items-center gap-3">
+          <p className="label mb-3 flex items-center gap-3">
             {index && (
               <span aria-hidden className="text-muted/60">
                 {index}
@@ -63,12 +63,14 @@ export function SectionHeading({
           </p>
           <h2
             id={id ? `${id}-heading` : undefined}
-            className="text-gradient-heading text-4xl leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
+            // pb-[0.08em] keeps descenders from being clipped by
+            // background-clip: text on the gradient heading.
+            className="text-gradient-heading pb-[0.08em] text-3xl leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl"
           >
             {title}
           </h2>
           {lead && (
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
               {lead}
             </p>
           )}

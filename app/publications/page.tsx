@@ -20,24 +20,24 @@ export const metadata: Metadata = {
 
 export default function PublicationsPage() {
   return (
-    <main id="main" className="pb-24 pt-32 sm:pt-40">
+    <main id="main" className="pb-16 pt-28 sm:pt-32">
       <div className="container">
-        <Button asChild variant="ghost" size="sm" className="-ml-4 mb-12">
+        <Button asChild variant="ghost" size="sm" className="-ml-4 mb-8">
           <Link href="/">
             <ArrowLeft />
             Back to portfolio
           </Link>
         </Button>
 
-        <header className="mb-16 max-w-2xl">
-          <p className="label mb-5 flex items-center gap-3">
+        <header className="mb-10 max-w-2xl">
+          <p className="label mb-3 flex items-center gap-3">
             <span aria-hidden className="h-px w-8 bg-line-strong" />
             Archive
           </p>
-          <h1 className="text-gradient-heading text-5xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 className="text-gradient-heading pb-[0.08em] text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             Publications.
           </h1>
-          <p className="mt-6 leading-relaxed text-muted">
+          <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
             {publications.length} peer-reviewed{" "}
             {publications.length === 1 ? "record" : "records"} in medical imaging
             and clinical natural language processing. Expand any entry for its

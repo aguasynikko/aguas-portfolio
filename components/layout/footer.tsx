@@ -7,19 +7,19 @@ export function Footer() {
 
   return (
     <footer className="border-t border-line">
-      <div className="container py-14">
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+      <div className="container py-10">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
             <p className="font-serif text-2xl text-heading">{person.name}</p>
-            <p className="label mt-3">{person.location}</p>
-            <p className="mt-5 text-sm leading-relaxed text-muted">
+            <p className="label mt-2">{person.location}</p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
               {person.availability}
             </p>
           </div>
 
           <nav aria-label="Elsewhere">
-            <p className="label mb-5">Elsewhere</p>
-            <ul className="space-y-3">
+            <p className="label mb-3">Elsewhere</p>
+            <ul className="space-y-2">
               {person.socials.map((social) => {
                 const Icon = getIcon(social.icon);
                 const external = social.href.startsWith("http");
@@ -46,7 +46,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="hairline my-10" />
+        <div className="hairline my-7" />
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="label">

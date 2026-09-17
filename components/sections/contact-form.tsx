@@ -54,16 +54,16 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
+    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-4">
       {/* Honeypot — hidden from humans and from assistive tech. */}
       <div aria-hidden className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden">
         <label htmlFor="company">Company (leave blank)</label>
         <input id="company" tabIndex={-1} autoComplete="off" {...register("company")} />
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="label mb-3 block">
+          <label htmlFor="name" className="label mb-2 block">
             Name
           </label>
           <Input
@@ -78,7 +78,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="label mb-3 block">
+          <label htmlFor="email" className="label mb-2 block">
             Email
           </label>
           <Input
@@ -95,7 +95,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="subject" className="label mb-3 block">
+        <label htmlFor="subject" className="label mb-2 block">
           Subject <span className="normal-case tracking-normal">(optional)</span>
         </label>
         <Input
@@ -109,7 +109,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="label mb-3 block">
+        <label htmlFor="message" className="label mb-2 block">
           Message
         </label>
         <Textarea

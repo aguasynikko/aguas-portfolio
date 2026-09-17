@@ -32,7 +32,7 @@ export function PublicationsIndex() {
         <div
           role="group"
           aria-label="Filter publications by type"
-          className="mb-12 flex flex-wrap gap-2"
+          className="mb-6 flex flex-wrap gap-2"
         >
           {types.map((type) => {
             const isActive = filter === type;

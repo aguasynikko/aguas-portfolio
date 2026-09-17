@@ -23,9 +23,9 @@ export function EducationSection() {
         title="Credentials."
       />
 
-      <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
+      <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5">
-          <p className="label mb-8">Degree</p>
+          <p className="label mb-4">Degree</p>
           {education.map((edu) => (
             <Reveal key={edu.school}>
               <article className="border-l border-line-strong pl-6">
@@ -36,14 +36,14 @@ export function EducationSection() {
                   </span>
                   <time>{edu.end}</time>
                 </p>
-                <h3 className="mt-4 text-2xl leading-snug">{edu.school}</h3>
-                <p className="mt-3 leading-relaxed text-body">{edu.degree}</p>
+                <h3 className="mt-3 text-xl leading-snug">{edu.school}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-body sm:text-base">{edu.degree}</p>
                 {edu.focus && (
                   <p className="mt-1 text-sm text-muted">{edu.focus}</p>
                 )}
                 {edu.location && <p className="label mt-4">{edu.location}</p>}
                 {edu.notes && (
-                  <ul className="mt-6 space-y-3">
+                  <ul className="mt-4 space-y-2">
                     {edu.notes.map((note) => (
                       <li key={note} className="flex gap-3 text-sm text-muted">
                         <span
@@ -61,12 +61,12 @@ export function EducationSection() {
         </div>
 
         <div className="lg:col-span-7">
-          <p className="label mb-8">Certifications</p>
-          <div className="space-y-10">
+          <p className="label mb-4">Certifications</p>
+          <div className="space-y-6">
             {Object.entries(groups).map(([group, items], gi) => (
               <Reveal key={group} delay={gi * 0.06}>
                 <div>
-                  <div className="mb-4 flex items-center gap-5">
+                  <div className="mb-2 flex items-center gap-4">
                     <p className="font-mono text-[10px] uppercase tracking-label text-muted/70">
                       {group}
                     </p>
@@ -75,7 +75,7 @@ export function EducationSection() {
                   <ul>
                     {items.map((cert) => (
                       <li key={`${cert.name}-${cert.issuer}`}>
-                        <div className="group flex flex-col gap-1 border-b border-line py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                        <div className="group flex flex-col gap-1 border-b border-line py-2.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
                           <p className="text-body transition-colors duration-300 group-hover:text-heading">
                             {cert.credentialUrl ? (
                               <a

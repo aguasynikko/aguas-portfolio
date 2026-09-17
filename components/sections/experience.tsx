@@ -36,7 +36,7 @@ export function Experience() {
                 className="absolute left-0 top-2 hidden size-[7px] -translate-x-[3px] rounded-full border border-line-strong bg-base transition-colors duration-500 group-hover:border-accent group-hover:bg-accent md:block"
               />
 
-              <div className="border-b border-line py-10 first:pt-0 md:py-12">
+              <div className="border-b border-line py-7 first:pt-0 md:py-8">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
                   <p className="label flex items-center gap-3">
                     <span aria-hidden className="text-muted/60">
@@ -53,10 +53,10 @@ export function Experience() {
                   </p>
                 </div>
 
-                <h3 className="mt-5 text-2xl leading-tight sm:text-3xl">
+                <h3 className="mt-3 text-xl leading-tight sm:text-2xl">
                   {entry.role}
                 </h3>
-                <p className="mt-2 text-sm text-muted">
+                <p className="mt-1.5 text-sm text-muted">
                   {entry.company}
                   {entry.location && (
                     <>
@@ -69,12 +69,12 @@ export function Experience() {
                 </p>
 
                 {entry.summary && (
-                  <p className="mt-5 max-w-2xl leading-relaxed text-body">
+                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-body sm:text-base">
                     {entry.summary}
                   </p>
                 )}
 
-                <ul className="mt-8 space-y-6">
+                <ul className="mt-5 space-y-3.5">
                   {entry.achievements.map((achievement, j) => (
                     <li key={j} className="max-w-3xl">
                       <div className="flex gap-4">
@@ -83,11 +83,11 @@ export function Experience() {
                           className="mt-[0.6rem] h-px w-4 shrink-0 bg-line-strong"
                         />
                         <div>
-                          <p className="leading-relaxed text-muted">
+                          <p className="text-sm leading-relaxed text-muted">
                             {achievement.text}
                           </p>
                           {achievement.tech && achievement.tech.length > 0 && (
-                            <ul className="mt-3 flex flex-wrap gap-2">
+                            <ul className="mt-2 flex flex-wrap gap-1.5">
                               {achievement.tech.map((t) => (
                                 <li key={t}>
                                   <Badge>{t}</Badge>

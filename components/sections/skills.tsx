@@ -36,7 +36,7 @@ function TechTile({ skill }: { skill: Skill }) {
   const tile = (
     <div
       className={
-        "group flex aspect-square flex-col items-center justify-center gap-3 " +
+        "group flex aspect-square flex-col items-center justify-center gap-2 " +
         "border border-line bg-surface p-3 transition-all duration-500 ease-noir " +
         "hover:-translate-y-1 hover:border-line-strong hover:bg-surface-raised hover:shadow-lift"
       }
@@ -107,10 +107,10 @@ export function Skills() {
       />
 
       <TooltipProvider delayDuration={120} skipDelayDuration={300}>
-        <div className="space-y-16">
+        <div className="space-y-8">
           {grouped.map(({ category, items }, groupIndex) => (
             <div key={category}>
-              <div className="mb-6 flex items-center gap-5">
+              <div className="mb-3 flex items-center gap-4">
                 <p className="label shrink-0">{category}</p>
                 <span aria-hidden className="h-px flex-1 bg-line" />
                 <span
@@ -122,7 +122,7 @@ export function Skills() {
               </div>
 
               <Stagger
-                className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8"
+                className="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10"
                 stagger={0.035}
                 delayChildren={groupIndex * 0.04}
               >

@@ -68,8 +68,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         )}
       </div>
 
-      <div className="flex flex-1 flex-col p-6 sm:p-7">
-        <div className="mb-5 flex items-center justify-between">
+      <div className="flex flex-1 flex-col p-5">
+        <div className="mb-3 flex items-center justify-between">
           <p className="label">Case {pad(index + 1)}</p>
           {project.year && (
             <p className="font-mono text-[10px] tracking-label text-muted/70">
@@ -78,7 +78,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           )}
         </div>
 
-        <h3 className="text-xl leading-snug transition-colors duration-300 group-hover:text-accent sm:text-2xl">
+        <h3 className="text-lg leading-snug transition-colors duration-300 group-hover:text-accent">
           {primaryLink ? (
             <a
               href={primaryLink}
@@ -93,11 +93,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           )}
         </h3>
 
-        <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">
+        <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted">
           {project.blurb}
         </p>
 
-        <ul className="mt-6 flex flex-wrap gap-2">
+        <ul className="mt-4 flex flex-wrap gap-1.5">
           {project.tech.slice(0, 5).map((t) => (
             <li key={t}>
               <Badge>{t}</Badge>
@@ -111,7 +111,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </ul>
 
         {(project.demo || project.repo) && (
-          <div className="relative z-10 mt-7 flex items-center gap-5 border-t border-line pt-5">
+          <div className="relative z-10 mt-4 flex items-center gap-5 border-t border-line pt-4">
             {project.demo && (
               <a
                 href={project.demo}
@@ -180,7 +180,7 @@ export function Projects() {
       <div
         role="group"
         aria-label="Filter projects by technology"
-        className="mask-fade-x -mx-6 mb-12 flex gap-2 overflow-x-auto px-6 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
+        className="mask-fade-x -mx-6 mb-6 flex gap-2 overflow-x-auto px-6 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
       >
         {filters.map((tech) => {
           const isActive = filter === tech;
