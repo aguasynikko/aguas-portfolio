@@ -77,7 +77,7 @@ export default async function Image() {
             fontFamily: "monospace",
           }}
         >
-          <div>2 IEEE Publications</div>
+          <div>{person.kicker}</div>
           <div>{person.location}</div>
         </div>
       </div>

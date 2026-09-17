@@ -20,19 +20,19 @@ export const person: Person = {
   title: "AI Engineer",
   titles: ["AI Engineer", "Data Analyst", "Full-Stack Developer"],
   tagline:
-    "I build computer-vision and retrieval systems for healthcare — two IEEE papers, and production software that ships.",
+    "I build AI systems, turn data into decisions, and ship full-stack products — from CT segmentation models to platforms teams use every day.",
   bio: [
-    "I'm a Computer Science student at Mapúa University specializing in Artificial Intelligence. My work sits where research meets production: medical imaging models that hold up to clinical scrutiny, retrieval systems grounded in real guidelines, and the full-stack products that put them in front of users.",
-    "I've published two IEEE papers — one first-authored on multi-class kidney abnormality segmentation from CT scans, another on a retrieval-augmented chatbot for atrial-fibrillation guidelines. Alongside the research, I shipped 15+ production modules for an internal platform serving 30+ people, architecting the data layer and enforcing role-based access at the database level.",
-    "What I care about is the gap between a model that scores well and a system someone can actually trust. That usually means evaluation you can defend, latency budgets you can meet, and interfaces that don't hide uncertainty.",
+    "I'm a Computer Science student at Mapúa University specializing in Artificial Intelligence. I work across three tracks that keep feeding each other: building machine-learning systems, analyzing data until it says something useful, and shipping the software that puts both in front of people.",
+    "On the engineering side, I shipped 15+ production modules for an internal platform serving 30+ people — architecting the React and Supabase data layer, enforcing role-based access across 25+ PostgreSQL migrations, and building an in-app AI assistant with real-time sync. On the data side, I've built end-to-end analysis tools that go from raw exploratory work through to live prediction, paired with plain-language interpretation for non-technical readers.",
+    "On the research side, I've published two IEEE papers in medical imaging and clinical NLP. What ties all of it together is the gap between something that scores well and something people can actually trust — evaluation you can defend, latency budgets you can meet, and interfaces that don't hide uncertainty.",
   ],
   photo: "/ynikko-aguas.jpg",
   photoAlt: "Portrait of Yñikko Arzee Neo Aguas",
   resumeUrl: "/resume.pdf",
   location: "Makati City, Philippines",
-  kicker: "Two IEEE papers · Medical imaging & clinical NLP",
+  kicker: "Artificial intelligence · Data science · Software engineering",
   focus:
-    "Computer vision, retrieval-augmented generation, and full-stack product engineering.",
+    "Machine learning and computer vision, data analysis end to end, and full-stack product engineering.",
   email: "aguasynikko6@gmail.com",
   // Present on your CV, deliberately not rendered anywhere on the site:
   // public phone numbers get harvested by scrapers. It stays in the PDF.
@@ -389,10 +389,13 @@ export const skills: Skill[] = [
   { name: "Jira", icon: "Jira", category: "Tools", level: "Proficient", years: 1 },
 ];
 
-/** Headline metrics for the hero strip — the 30-second recruiter scan. */
+/**
+ * Headline metrics for the hero strip — the 30-second scan.
+ * Deliberately one from each track: engineering, breadth, data, research.
+ */
 export const stats = [
-  { value: "2", label: "IEEE papers" },
-  { value: "0.946", label: "mAP@0.5 — CT segmentation" },
   { value: "15+", label: "Production modules shipped" },
-  { value: "14,761", label: "CT scans curated" },
+  { value: "6", label: "Projects across AI, data & web" },
+  { value: "96%", label: "Top model accuracy" },
+  { value: "2", label: "IEEE publications" },
 ];

@@ -1,4 +1,4 @@
-import { education, person, publications } from "@/data/resume";
+import { education, person, projects, publications } from "@/data/resume";
 import { Reveal } from "@/components/ui/reveal";
 import { Section, SectionHeading } from "@/components/ui/section";
 
@@ -9,7 +9,7 @@ export function About() {
         id="about"
         index="01"
         eyebrow="About"
-        title="Research that ships."
+        title="Build, analyze, ship."
       />
 
       {/* The portrait lives in the hero now, so this is text-only: bio on the
@@ -43,8 +43,9 @@ export function About() {
           <dl className="mt-8 space-y-px overflow-hidden border border-line bg-line">
             {[
               { k: "Based in", v: person.location },
-              { k: "Published", v: `${publications.length} IEEE papers` },
               { k: "Studying", v: `${education[0].degree}, ${education[0].school}` },
+              { k: "Built", v: `${projects.length} projects across AI, data & web` },
+              { k: "Published", v: `${publications.length} IEEE papers` },
             ].map((row) => (
               <div
                 key={row.k}

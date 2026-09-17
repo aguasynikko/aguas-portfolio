@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { navItems, person } from "@/data/resume";
+import { navItems } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
@@ -56,13 +56,6 @@ export function Navbar() {
 
   useEffect(() => setOpen(false), [pathname]);
 
-  const initials = person.name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 3)
-    .toUpperCase();
-
   return (
     <>
       <a
@@ -84,20 +77,6 @@ export function Navbar() {
           aria-label="Primary"
           className="container flex h-16 items-center justify-between sm:h-20"
         >
-          <Link
-            href="/"
-            className="group flex items-center gap-3"
-            aria-label={`${person.name} — home`}
-          >
-            <span className="font-mono text-xs tracking-label text-heading transition-colors group-hover:text-accent">
-              {initials}
-            </span>
-            <span aria-hidden className="h-4 w-px bg-line-strong" />
-            <span className="hidden font-mono text-[10px] uppercase tracking-label text-muted sm:inline">
-              {person.title}
-            </span>
-          </Link>
-
           <ul className="hidden items-center gap-1 lg:flex">
             {navItems.map((item) => {
               const href = isHome ? item.href : `/${item.href}`;
@@ -126,16 +105,9 @@ export function Navbar() {
             })}
           </ul>
 
-          <div className="flex items-center gap-2">
+          {/* ml-auto keeps these hard right once the nav list is hidden. */}
+          <div className="ml-auto flex items-center gap-2">
             <ThemeToggle />
-            <Button
-              asChild
-              variant="solid"
-              size="sm"
-              className="hidden sm:inline-flex"
-            >
-              <a href={isHome ? "#contact" : "/#contact"}>Get in touch</a>
-            </Button>
             <Button
               variant="ghost"
               size="icon"
