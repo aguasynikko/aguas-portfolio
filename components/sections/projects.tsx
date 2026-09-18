@@ -146,7 +146,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export function Projects() {
   const reduced = useReducedMotion();
-  const [filter, setFilter] = useState<Filter>(null);
+  // Artificial Intelligence leads on arrival; clicking it clears the filter
+  // and reveals everything.
+  const [filter, setFilter] = useState<Filter>("Artificial Intelligence");
 
   // Hide a category chip entirely if no project currently claims it.
   const filters = useMemo<ProjectCategory[]>(() => {
