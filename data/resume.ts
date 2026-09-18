@@ -18,7 +18,7 @@ import type {
 export const person: Person = {
   name: "Yñikko Arzee Neo Aguas",
   title: "AI Engineer",
-  titles: ["AI Engineer", "Data Scientist", "Software Developer"],
+  titles: ["AI Engineer", "Data Scientist", "Software Engineer"],
   tagline:
     "I build AI systems, turn data into decisions, and ship full-stack products — from CT segmentation models to platforms teams use every day.",
   bio: [

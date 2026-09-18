@@ -173,7 +173,7 @@ the more fields you fill, the more complete the citation.
 ```ts
 // data/resume.ts → person
 title: "AI Engineer",      // canonical — SEO, OG image, JSON-LD. Never animates.
-titles: ["AI Engineer", "Data Scientist", "Software Developer"],
+titles: ["AI Engineer", "Data Scientist", "Software Engineer"],
 ```
 
 `titles` is what cycles in the hero; the first entry paints first and holds

@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     "Computer Vision",
     "RAG",
     "Data Scientist",
-    "Software Developer",
+    "Software Engineer",
     "Philippines",
   ],
   authors: [{ name: person.name, url: siteUrl }],
