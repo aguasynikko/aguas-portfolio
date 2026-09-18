@@ -10,7 +10,6 @@ import { cn, pad } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Section, SectionHeading } from "@/components/ui/section";
 
-const ALL = "All";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /** Fixed, authored filter set — order is intentional, not data-derived. */
@@ -20,7 +19,8 @@ const CATEGORIES: ProjectCategory[] = [
   "Software Development",
 ];
 
-type Filter = ProjectCategory | typeof ALL;
+/** null means "no filter applied" — every project shows. */
+type Filter = ProjectCategory | null;
 
 /**
  * Fallback thumbnail for projects without an image: a generated plate built
@@ -146,19 +146,19 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export function Projects() {
   const reduced = useReducedMotion();
-  const [filter, setFilter] = useState<Filter>(ALL);
+  const [filter, setFilter] = useState<Filter>(null);
 
   // Hide a category chip entirely if no project currently claims it.
-  const filters = useMemo<Filter[]>(() => {
+  const filters = useMemo<ProjectCategory[]>(() => {
     const used = new Set(projects.flatMap((p) => p.categories));
-    return [ALL, ...CATEGORIES.filter((c) => used.has(c))];
+    return CATEGORIES.filter((c) => used.has(c));
   }, []);
 
   const visible = useMemo(() => {
     const ordered = [...projects].sort(
       (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))
     );
-    return filter === ALL
+    return filter === null
       ? ordered
       : ordered.filter((p) => p.categories.includes(filter));
   }, [filter]);
@@ -184,7 +184,9 @@ export function Projects() {
             <button
               key={category}
               type="button"
-              onClick={() => setFilter(category)}
+              // Clicking the active chip clears it, which is what replaces
+              // the old "All" button: no selection means everything shows.
+              onClick={() => setFilter((f) => (f === category ? null : category))}
               aria-pressed={isActive}
               className={cn(
                 "shrink-0 rounded-sm border px-3 py-1.5 font-mono text-[10px] uppercase tracking-label transition-all duration-300 ease-noir",
