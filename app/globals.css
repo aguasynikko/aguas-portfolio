@@ -195,7 +195,11 @@
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
       .reveal {
-        animation: reveal-rise linear both;
+        /* No fill mode, deliberately. With `both`, anything outside the
+           scroll range holds the from-state and stays invisible if the range
+           is ever mis-evaluated. Without it, the element's natural state is
+           visible and the animation can only ever play *over* that. */
+        animation: reveal-rise linear;
         animation-timeline: view();
         /* --reveal-delay shifts the element further along the scroll range,
            which is how staggering works without wall-clock delays. */
