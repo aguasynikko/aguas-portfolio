@@ -159,8 +159,6 @@ export interface Person {
   /** One-line description of the problem areas the work covers. */
   focus: string;
   email: string;
-  /** Intentionally omitted from the rendered page — see README. */
-  phone?: string;
   socials: SocialLink[];
 }
 

@@ -75,9 +75,10 @@ Two deliberate choices worth knowing about:
   résumé and `public/cv.pdf` is the long-form CV. Both are served from
   `person.resumeUrl` / `person.cvUrl`, so replacing either file is enough to
   update the download — no code change needed.
-- **Your phone number is not rendered anywhere on the site.** It lives in
-  `person.phone` and in the PDF, but public phone numbers get harvested by
-  scrapers. To display it anyway, add it to the contact section yourself.
+- **Your phone number is not rendered anywhere on the site**, and is no longer
+  stored in the data file either. It remains in the résumé and CV PDFs, which
+  are downloadable by design. To display it on the page, add it to the contact
+  section yourself.
 - **Your two IEEE papers appear in Publications only**, not in Projects, so a
   recruiter doesn't read the same kidney-CT work twice. The deployed
   Streamlit app *is* listed as a project, which is a different artifact.

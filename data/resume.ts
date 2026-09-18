@@ -37,9 +37,6 @@ export const person: Person = {
   focus:
     "Natural language processing and computer vision, data analysis end to end, and full-stack product engineering.",
   email: "aguasynikko6@gmail.com",
-  // Present on your CV, deliberately not rendered anywhere on the site:
-  // public phone numbers get harvested by scrapers. It stays in the PDF.
-  phone: "+63 966 267 8981",
   socials: [
     {
       label: "Email",
