@@ -16,7 +16,7 @@ import type {
  * ======================================================================== */
 
 export const person: Person = {
-  name: "Yñikko Arzee Neo Aguas",
+  name: "Yñikko Aguas",
   title: "AI Engineer",
   titles: ["AI Engineer", "Data Scientist", "Software Engineer"],
   tagline:
@@ -27,7 +27,7 @@ export const person: Person = {
     "On the research side, I've published two IEEE papers in medical imaging and clinical NLP. What ties all of it together is the gap between something that scores well and something people can actually trust — evaluation you can defend, latency budgets you can meet, and interfaces that don't hide uncertainty.",
   ],
   photo: "/ynikko-aguas.jpg",
-  photoAlt: "Portrait of Yñikko Arzee Neo Aguas",
+  photoAlt: "Portrait of Yñikko Aguas",
   resumeUrl: "/resume.pdf",
   resumeFileName: "Aguas_Resume.pdf",
   cvUrl: "/cv.pdf",

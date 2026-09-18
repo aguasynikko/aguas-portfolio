@@ -1,4 +1,4 @@
-# Ynikko Arzee Neo Aguas — Portfolio
+# Yñikko Aguas — Portfolio
 
 A personal portfolio built on the **Noir Executive** design system: strictly
 monochrome, serif headlines, monospace labels, film grain, and slow reveals.
