@@ -342,48 +342,66 @@ export const education: Education[] = [
 export const certifications: Certification[] = [
   {
     name: "Google Cybersecurity Professional Certificate",
+    credentialUrl:
+      "https://www.coursera.org/account/accomplishments/specialization/12LJHXYFEA07",
     issuer: "Google",
     group: "Security & Networking",
     date: "6-course series",
   },
   {
     name: "CCNA: Switching, Routing, and Wireless Essentials",
+    credentialUrl:
+      "https://www.credly.com/badges/7e1c3323-b613-4cdd-844c-917214b5edd6/linked_in_profile",
     issuer: "Cisco Networking Academy",
     group: "Security & Networking",
     date: "Oct. 2025",
   },
   {
     name: "Data Science Methodology",
+    credentialUrl:
+      "https://www.coursera.org/account/accomplishments/verify/D21TKZJTOT08",
     issuer: "IBM",
     group: "Data Science & AI",
   },
   {
     name: "Big Data & AI Ethics",
+    credentialUrl:
+      "https://www.coursera.org/account/accomplishments/verify/H8VSHDJ2J19W",
     issuer: "UC Davis",
     group: "Data Science & AI",
   },
   {
     name: "AI Data Fairness and Bias",
+    credentialUrl:
+      "https://www.coursera.org/account/accomplishments/verify/S5A7NT8UEYG2",
     issuer: "LearnQuest",
     group: "Data Science & AI",
   },
   {
     name: "Introduction to Software Engineering",
+    credentialUrl:
+      "https://www.coursera.org/account/accomplishments/verify/LFT3A9CTVEJQ",
     issuer: "IBM",
     group: "Software Engineering",
   },
   {
     name: "Data Structures",
+    credentialUrl:
+      "https://www.coursera.org/account/accomplishments/verify/9GSA2NKSCGMI",
     issuer: "UC San Diego",
     group: "Software Engineering",
   },
   {
     name: "Programming Languages",
+    credentialUrl:
+      "https://www.coursera.org/account/accomplishments/verify/CCJWY26BQAZT",
     issuer: "University of Washington",
     group: "Software Engineering",
   },
   {
     name: "UI/UX Design Specialization",
+    credentialUrl:
+      "https://www.coursera.org/account/accomplishments/specialization/GSB68X2UMRBY",
     issuer: "CalArts",
     group: "Design",
   },

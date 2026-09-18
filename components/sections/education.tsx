@@ -87,7 +87,14 @@ export function EducationSection() {
                                 className="inline-flex items-center gap-1.5 hover:text-accent"
                               >
                                 {cert.name}
-                                <ExternalLink aria-hidden className="size-3" />
+                                <ExternalLink
+                                  aria-hidden
+                                  className="size-3 shrink-0"
+                                />
+                                <span className="sr-only">
+                                  {" "}
+                                  (opens in a new tab)
+                                </span>
                               </a>
                             ) : (
                               cert.name
