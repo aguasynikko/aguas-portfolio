@@ -29,7 +29,9 @@ export const person: Person = {
   photo: "/ynikko-aguas.jpg",
   photoAlt: "Portrait of Yñikko Arzee Neo Aguas",
   resumeUrl: "/resume.pdf",
+  resumeFileName: "Aguas_Resume.pdf",
   cvUrl: "/cv.pdf",
+  cvFileName: "Aguas_CV.pdf",
   location: "Makati City, Philippines",
   kicker: "Artificial intelligence · Data science · Software engineering",
   focus:

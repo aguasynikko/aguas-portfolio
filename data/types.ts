@@ -145,8 +145,12 @@ export interface Person {
   photoAlt: string;
   /** One-page résumé. */
   resumeUrl: string;
+  /** Filename the browser saves the résumé as. */
+  resumeFileName: string;
   /** Long-form CV — publications, full project list. */
   cvUrl: string;
+  /** Filename the browser saves the CV as. */
+  cvFileName: string;
   location: string;
   /** Short factual line above the name — what the work is, not what's wanted. */
   kicker: string;

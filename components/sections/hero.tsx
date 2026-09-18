@@ -117,7 +117,7 @@ export function Hero() {
                 </Magnetic>
                 <Magnetic>
                   <Button asChild variant="outline">
-                    <a href={person.resumeUrl} download>
+                    <a href={person.resumeUrl} download={person.resumeFileName}>
                       Résumé
                       <Download />
                     </a>

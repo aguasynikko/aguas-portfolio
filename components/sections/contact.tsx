@@ -75,13 +75,13 @@ export function Contact() {
               <p className="label mb-3">Documents</p>
               <div className="flex flex-wrap gap-3">
                 <Button asChild variant="outline">
-                  <a href={person.resumeUrl} download>
+                  <a href={person.resumeUrl} download={person.resumeFileName}>
                     Résumé
                     <Download />
                   </a>
                 </Button>
                 <Button asChild variant="outline">
-                  <a href={person.cvUrl} download>
+                  <a href={person.cvUrl} download={person.cvFileName}>
                     CV
                     <Download />
                   </a>
