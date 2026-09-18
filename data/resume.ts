@@ -206,6 +206,7 @@ export const projects: Project[] = [
       "Built custom account-management modules, backed by Supabase for secure cloud storage.",
     ],
     tech: ["React", "Supabase", "shadcn/ui", "TypeScript"],
+    image: "/projects/vault-file-manager.webp",
   },
   {
     slug: "myapt-dashboard",
