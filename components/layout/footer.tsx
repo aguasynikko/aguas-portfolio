@@ -7,7 +7,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-line">
-      <div className="container py-10">
+      <div className="container py-8">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
             <p className="font-serif text-2xl text-heading">{person.name}</p>

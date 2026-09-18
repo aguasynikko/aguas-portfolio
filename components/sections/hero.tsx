@@ -45,7 +45,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-32"
+      className="relative overflow-hidden pb-10 pt-24 sm:pb-12 sm:pt-28"
       aria-labelledby="hero-heading"
     >
       {/* Spotlight — light cutting through darkness. */}
@@ -163,7 +163,7 @@ export function Hero() {
         </div>
 
         {/* Metric strip — the 30-second scan. */}
-        <Line delay={0.95} className="mt-12 sm:mt-14">
+        <Line delay={0.95} className="mt-10 sm:mt-12">
           <dl className="grid grid-cols-2 gap-px overflow-hidden border border-line bg-line lg:grid-cols-4">
             {stats.map((stat) => (
               <div key={stat.label} className="bg-base px-4 py-4 sm:px-5 sm:py-5">

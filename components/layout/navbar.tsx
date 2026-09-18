@@ -17,14 +17,24 @@ export function Navbar() {
   const [active, setActive] = useState<string>("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+
+      // Back at the top: drop the hash so the URL reads as the bare page
+      // rather than whichever section was last in view.
+      if (isHome && window.scrollY < 80 && window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname);
+        setActive("");
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
-  // Highlight the section currently in view. IntersectionObserver is far
-  // cheaper than measuring offsets on every scroll event.
+  // Track the section in view: highlights the tab and keeps the address bar
+  // in sync. IntersectionObserver is far cheaper than measuring offsets on
+  // every scroll event.
   useEffect(() => {
     if (!isHome) return;
     const ids = navItems.map((n) => n.href.replace("#", ""));
@@ -37,7 +47,16 @@ export function Navbar() {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(`#${visible.target.id}`);
+        if (!visible) return;
+
+        const hash = `#${visible.target.id}`;
+        setActive(hash);
+
+        // replaceState, not pushState: the back button should leave the page,
+        // not walk back through every section the reader scrolled past.
+        if (window.location.hash !== hash) {
+          window.history.replaceState(null, "", hash);
+        }
       },
       { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.5] }
     );
@@ -79,27 +98,43 @@ export function Navbar() {
         >
           <ul className="hidden items-center gap-1 lg:flex">
             {navItems.map((item) => {
-              const href = isHome ? item.href : `/${item.href}`;
               const isActive = isHome && active === item.href;
+              const linkClass = cn(
+                "relative block px-3 py-2 font-mono text-[11px] uppercase tracking-label transition-colors duration-300",
+                isActive ? "text-accent" : "text-muted hover:text-heading"
+              );
+              const inner = (
+                <>
+                  {item.label}
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute inset-x-3 -bottom-0.5 h-px origin-left bg-accent transition-transform duration-500 ease-noir",
+                      isActive ? "scale-x-100" : "scale-x-0"
+                    )}
+                  />
+                </>
+              );
+
               return (
                 <li key={item.href}>
-                  <Link
-                    href={href}
-                    aria-current={isActive ? "true" : undefined}
-                    className={cn(
-                      "relative px-3 py-2 font-mono text-[11px] uppercase tracking-label transition-colors duration-300",
-                      isActive ? "text-accent" : "text-muted hover:text-heading"
-                    )}
-                  >
-                    {item.label}
-                    <span
-                      aria-hidden
-                      className={cn(
-                        "absolute inset-x-3 -bottom-0.5 h-px origin-left bg-accent transition-transform duration-500 ease-noir",
-                        isActive ? "scale-x-100" : "scale-x-0"
-                      )}
-                    />
-                  </Link>
+                  {isHome ? (
+                    // A bare anchor, deliberately. next/link treats "#about"
+                    // as a route change and does an RSC round trip before it
+                    // scrolls; a plain href jumps immediately and still gets
+                    // the smooth scrolling from globals.css.
+                    <a
+                      href={item.href}
+                      aria-current={isActive ? "true" : undefined}
+                      className={linkClass}
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    <Link href={`/${item.href}`} className={linkClass}>
+                      {inner}
+                    </Link>
+                  )}
                 </li>
               );
             })}
@@ -133,13 +168,11 @@ export function Navbar() {
         )}
       >
         <ul className="container flex h-full flex-col justify-center gap-2">
-          {navItems.map((item, i) => (
-            <li key={item.href} className="border-b border-line">
-              <Link
-                href={isHome ? item.href : `/${item.href}`}
-                onClick={() => setOpen(false)}
-                className="flex items-baseline gap-4 py-4 font-serif text-3xl text-heading transition-colors hover:text-accent"
-              >
+          {navItems.map((item, i) => {
+            const itemClass =
+              "flex items-baseline gap-4 py-4 font-serif text-3xl text-heading transition-colors hover:text-accent";
+            const inner = (
+              <>
                 <span
                   aria-hidden
                   className="font-mono text-[10px] tracking-label text-muted"
@@ -147,9 +180,31 @@ export function Navbar() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {item.label}
-              </Link>
-            </li>
-          ))}
+              </>
+            );
+
+            return (
+              <li key={item.href} className="border-b border-line">
+                {isHome ? (
+                  <a
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className={itemClass}
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <Link
+                    href={`/${item.href}`}
+                    onClick={() => setOpen(false)}
+                    className={itemClass}
+                  >
+                    {inner}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>

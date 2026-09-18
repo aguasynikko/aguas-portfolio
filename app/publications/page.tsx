@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function PublicationsPage() {
   return (
-    <main id="main" className="pb-16 pt-28 sm:pt-32">
+    <main id="main" className="pb-12 pt-24 sm:pt-28">
       <div className="container">
         <Button asChild variant="ghost" size="sm" className="-ml-4 mb-8">
           <Link href="/">

@@ -17,11 +17,11 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("scroll-mt-20 py-14 sm:py-20", className)}
+      className={cn("scroll-mt-20 py-10 sm:py-14", className)}
       aria-labelledby={id ? `${id}-heading` : undefined}
     >
       <div className="container">
-        {divider && <div className="hairline mb-10 sm:mb-14" />}
+        {divider && <div className="hairline mb-8 sm:mb-10" />}
         {children}
       </div>
     </section>
@@ -49,7 +49,7 @@ export function SectionHeading({
   action?: ReactNode;
 }) {
   return (
-    <Reveal className="mb-8 sm:mb-10">
+    <Reveal className="mb-6 sm:mb-8">
       <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
           <p className="label mb-3 flex items-center gap-3">
