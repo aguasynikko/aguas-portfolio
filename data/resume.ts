@@ -158,6 +158,7 @@ export const projects: Project[] = [
       "Shipped a Streamlit interface that runs inference locally, so patient imaging never leaves the machine.",
     ],
     tech: ["Python", "YOLOv12", "Roboflow", "Streamlit"],
+    image: "/projects/kidney-segmentation.webp",
     featured: true,
   },
   {
