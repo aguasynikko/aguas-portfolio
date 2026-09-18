@@ -51,14 +51,14 @@ export function Hero() {
       <div aria-hidden className="spotlight pointer-events-none absolute inset-0" />
 
       <div className="container relative">
-        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="grid items-center gap-8 md:grid-cols-12 md:gap-10 lg:gap-12">
           {/* ---------------------------------------------------- text */}
-          <div className="lg:col-span-8">
+          <div className="md:col-span-7 lg:col-span-8">
             <Line delay={0.1}>
-              <p className="label flex items-center gap-3">
+              <p className="label flex items-start gap-3">
                 <span
                   aria-hidden
-                  className="inline-block size-1.5 rounded-full bg-brass"
+                  className="mt-[0.45em] inline-block size-1.5 shrink-0 rounded-full bg-brass"
                 />
                 {person.kicker}
               </p>
@@ -134,14 +134,14 @@ export function Hero() {
           </div>
 
           {/* --------------------------------------------------- portrait */}
-          <Line delay={0.35} className="lg:col-span-4">
-            <figure className="group relative mx-auto max-w-[260px] sm:max-w-[300px] lg:max-w-none">
+          <Line delay={0.35} className="md:col-span-5 lg:col-span-4">
+            <figure className="group relative mx-auto max-w-[190px] sm:max-w-[240px] md:max-w-none">
               <div className="relative aspect-square overflow-hidden border border-line bg-surface">
                 <Image
                   src={person.photo}
                   alt={person.photoAlt}
                   fill
-                  sizes="(max-width: 1024px) 300px, 33vw"
+                  sizes="(max-width: 768px) 240px, (max-width: 1024px) 40vw, 33vw"
                   // Above the fold — preload rather than lazy-load it.
                   priority
                   className="object-cover object-top transition-transform duration-700 ease-noir group-hover:scale-[1.03]"
@@ -164,9 +164,9 @@ export function Hero() {
         <Line delay={0.95} className="mt-10 sm:mt-12">
           <dl className="grid grid-cols-2 gap-px overflow-hidden border border-line bg-line lg:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="bg-canvas px-4 py-4 sm:px-5 sm:py-5">
+              <div key={stat.label} className="flex flex-col bg-canvas px-4 py-4 sm:px-5 sm:py-5">
                 <dt className="label mb-1.5 leading-relaxed">{stat.label}</dt>
-                <dd className="font-serif text-xl text-heading sm:text-2xl">
+                <dd className="mt-auto pt-1 font-serif text-xl text-heading sm:text-2xl">
                   {stat.value}
                 </dd>
               </div>

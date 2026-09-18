@@ -183,10 +183,10 @@ export function Navbar() {
           open ? "opacity-100" : "pointer-events-none opacity-0"
         )}
       >
-        <ul className="container flex h-full flex-col justify-center gap-2">
+        <ul className="container flex h-full flex-col justify-center gap-1 overflow-y-auto py-24">
           {navItems.map((item, i) => {
             const itemClass =
-              "flex items-baseline gap-4 py-4 font-serif text-3xl text-heading transition-colors hover:text-accent";
+              "flex items-baseline gap-4 py-3 font-serif text-2xl text-heading transition-colors hover:text-accent sm:py-4 sm:text-3xl";
             const inner = (
               <>
                 <span
