@@ -27,7 +27,7 @@ type Filter = ProjectCategory | typeof ALL;
  * from the case number and initials. Keeps the grid uniform instead of leaving
  * holes, and costs nothing to render.
  */
-function MonogramPlate({ project, index }: { project: Project; index: number }) {
+function MonogramPlate({ project }: { project: Project }) {
   const initials = project.title
     .replace(/[^\w\s]/g, " ")
     .split(/\s+/)
@@ -48,12 +48,6 @@ function MonogramPlate({ project, index }: { project: Project; index: number }) 
       >
         {initials}
       </span>
-      <span
-        aria-hidden
-        className="absolute bottom-4 left-4 font-mono text-[10px] tracking-label text-muted/70"
-      >
-        CASE {pad(index + 1)}
-      </span>
     </div>
   );
 }
@@ -73,7 +67,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             className="media-noir object-cover"
           />
         ) : (
-          <MonogramPlate project={project} index={index} />
+          <MonogramPlate project={project} />
         )}
       </div>
 
@@ -176,7 +170,7 @@ export function Projects() {
         index="03"
         eyebrow="Projects"
         title="Selected work."
-        lead="Six builds spanning edge AI, medical imaging, analytics, and production web apps."
+        lead="Builds spanning edge AI, medical imaging, analytics, and production web apps."
       />
 
       <div
@@ -207,7 +201,10 @@ export function Projects() {
 
       <motion.ul
         layout={!reduced}
-        className="grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 xl:grid-cols-3"
+        // Real gaps rather than a bg-line parent with gap-px: the cards
+        // already carry their own borders, and an incomplete final row
+        // used to expose the parent background as a grey slab.
+        className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
       >
         <AnimatePresence mode="popLayout" initial={false}>
           {visible.map((project, i) => (
@@ -218,7 +215,7 @@ export function Projects() {
               animate={{ opacity: 1, scale: 1 }}
               exit={reduced ? undefined : { opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.45, ease: EASE }}
-              className="relative bg-base"
+              className="relative"
             >
               <ProjectCard project={project} index={i} />
             </motion.li>
