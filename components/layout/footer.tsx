@@ -48,12 +48,9 @@ export function Footer() {
 
         <div className="hairline my-7" />
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="label">
-            © {year} {person.name}
-          </p>
-          <p className="label">Built with Next.js · Deployed on Vercel</p>
-        </div>
+        <p className="label text-center">
+          © {year} {person.name}
+        </p>
       </div>
     </footer>
   );
