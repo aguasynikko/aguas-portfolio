@@ -282,8 +282,8 @@ export const publications: Publication[] = [
       "Privacy-preserving local inference — imaging never leaves the device.",
     ],
     tech: ["Python", "YOLOv12", "Roboflow", "Streamlit"],
-    // doi: "10.1109/XXXXXX",           // TODO
-    // link: "https://ieeexplore.ieee.org/document/XXXXXXX",  // TODO
+    link: "https://ieeexplore.ieee.org/document/11438968",
+    // TODO: add the DOI once assigned — it makes the citation complete.
   },
 ];
 

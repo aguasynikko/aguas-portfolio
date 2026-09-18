@@ -65,8 +65,8 @@ export function PublicationRecord({
   const [open, setOpen] = useState(false);
   const panelId = `abstract-${pub.id}`;
 
+  // `link` is not listed here — the title itself carries it.
   const links: { label: string; href: string; icon: typeof FileText }[] = [];
-  if (pub.link) links.push({ label: "Read paper", href: pub.link, icon: ExternalLink });
   if (pub.pdfUrl) links.push({ label: "PDF", href: pub.pdfUrl, icon: FileText });
   if (pub.doi)
     links.push({
@@ -96,8 +96,26 @@ export function PublicationRecord({
             </span>
           </div>
 
-          <h3 className="max-w-3xl text-lg leading-snug transition-colors duration-300 group-hover:text-accent sm:text-xl">
-            {pub.title}
+          <h3 className="max-w-3xl text-lg leading-snug sm:text-xl">
+            {pub.link ? (
+              <a
+                href={pub.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline transition-colors duration-300 hover:text-accent focus-visible:text-accent"
+              >
+                {pub.title}
+                {/* Sits inside the link so it wraps with the last word rather
+                    than stranding itself on a line of its own. */}
+                <ExternalLink
+                  aria-hidden
+                  className="ml-2 inline size-3.5 shrink-0 -translate-y-px text-muted transition-colors duration-300 group-hover:text-accent"
+                />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            ) : (
+              pub.title
+            )}
           </h3>
 
           {/* Author list — the site owner's name is emphasized. */}
