@@ -58,7 +58,16 @@ export function ContactForm() {
       {/* Honeypot — hidden from humans and from assistive tech. */}
       <div aria-hidden className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden">
         <label htmlFor="company">Company (leave blank)</label>
-        <input id="company" tabIndex={-1} autoComplete="off" {...register("company")} />
+        <input
+          id="company"
+          tabIndex={-1}
+          autoComplete="off"
+          suppressHydrationWarning
+          data-lpignore="true"
+          data-1p-ignore
+          data-form-type="other"
+          {...register("company")}
+        />
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">

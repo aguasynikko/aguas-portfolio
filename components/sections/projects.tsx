@@ -19,8 +19,8 @@ const CATEGORIES: ProjectCategory[] = [
   "Software Development",
 ];
 
-/** null means "no filter applied" — every project shows. */
-type Filter = ProjectCategory | null;
+/** Exactly one category is always active — there is no "show everything" view. */
+type Filter = ProjectCategory;
 
 /**
  * Fallback thumbnail for projects without an image: a generated plate built
@@ -146,8 +146,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export function Projects() {
   const reduced = useReducedMotion();
-  // Artificial Intelligence leads on arrival; clicking it clears the filter
-  // and reveals everything.
   const [filter, setFilter] = useState<Filter>("Artificial Intelligence");
 
   // Hide a category chip entirely if no project currently claims it.
@@ -160,9 +158,7 @@ export function Projects() {
     const ordered = [...projects].sort(
       (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))
     );
-    return filter === null
-      ? ordered
-      : ordered.filter((p) => p.categories.includes(filter));
+    return ordered.filter((p) => p.categories.includes(filter));
   }, [filter]);
 
   return (
@@ -186,9 +182,9 @@ export function Projects() {
             <button
               key={category}
               type="button"
-              // Clicking the active chip clears it, which is what replaces
-              // the old "All" button: no selection means everything shows.
-              onClick={() => setFilter((f) => (f === category ? null : category))}
+              // Selecting only. Clicking the active chip is a no-op, so one
+              // category is always in effect.
+              onClick={() => setFilter(category)}
               aria-pressed={isActive}
               className={cn(
                 "shrink-0 rounded-sm border px-3 py-1.5 font-mono text-[10px] uppercase tracking-label transition-all duration-300 ease-noir",

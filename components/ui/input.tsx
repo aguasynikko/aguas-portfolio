@@ -6,7 +6,17 @@ const fieldStyles =
 
 const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, type = "text", ...props }, ref) => (
-    <input type={type} ref={ref} className={cn(fieldStyles, className)} {...props} />
+    <input
+      type={type}
+      ref={ref}
+      // Password managers and 2FA extensions add their own attributes to
+      // form fields before hydration. Without this, that mismatch aborts
+      // hydration for the whole tree and interactive elements elsewhere on
+      // the page silently stop responding.
+      suppressHydrationWarning
+      className={cn(fieldStyles, className)}
+      {...props}
+    />
   )
 );
 Input.displayName = "Input";
@@ -17,6 +27,7 @@ const Textarea = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <textarea
     ref={ref}
+    suppressHydrationWarning
     className={cn(fieldStyles, "min-h-[7rem] resize-y leading-relaxed", className)}
     {...props}
   />
