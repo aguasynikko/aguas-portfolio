@@ -191,6 +191,7 @@ export const projects: Project[] = [
       "Designed geospatial density maps and KDE/temporal plots, each paired with plain-language interpretations for non-technical readers.",
     ],
     tech: ["Python", "Streamlit", "Scikit-learn", "pandas", "Seaborn"],
+    image: "/projects/earthquake-analysis.webp",
     featured: true,
   },
   {
