@@ -248,7 +248,8 @@ export const projects: Project[] = [
 export const publications: Publication[] = [
   {
     id: "rag-afib",
-    title: "RAG-Based Clinical Guideline Chatbot for Atrial Fibrillation",
+    title:
+      "Open-Source LLMs for Evidence-Grounded Clinical Question Answering: A RAG Framework Based on the 2024 ESC Atrial Fibrillation Guidelines",
     authors: ["Yñikko Arzee Neo Aguas"], // TODO: add co-authors in citation order
     venue: "IEEE", // TODO: full conference or journal name
     publisher: "IEEE",
@@ -262,8 +263,8 @@ export const publications: Publication[] = [
       "0.7s latency and 7.9 tokens/sec via quantized local inference.",
     ],
     tech: ["Python", "Gradio", "MedCPT", "FAISS", "BGE", "Ollama"],
-    // doi: "10.1109/XXXXXX",           // TODO
-    // link: "https://ieeexplore.ieee.org/document/XXXXXXX",  // TODO
+    link: "https://ieeexplore.ieee.org/document/11517831",
+    // TODO: add the DOI once assigned — it makes the citation complete.
   },
   {
     id: "kidney-segmentation",
