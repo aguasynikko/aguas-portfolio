@@ -122,7 +122,7 @@ export const experience: Experience[] = [
 export const projects: Project[] = [
   {
     slug: "edge-ai-food-label",
-    categories: ["Artificial Intelligence", "Software Development"],
+    categories: ["Artificial Intelligence"],
     title: "Edge AI Food Label Analysis",
     year: "2026",
     blurb:
@@ -218,7 +218,7 @@ export const projects: Project[] = [
   },
   {
     slug: "heart-disease-risk",
-    categories: ["Data Science", "Artificial Intelligence"],
+    categories: ["Data Science"],
     title: "Heart Disease Risk Detection",
     year: "2025",
     blurb:
