@@ -58,7 +58,7 @@ function ExperienceRow({
       <span
         aria-hidden
         className={cn(
-          "absolute left-0 top-6 hidden size-[7px] -translate-x-[3px] rounded-full border bg-base transition-colors duration-500 md:block",
+          "absolute left-0 top-6 hidden size-[7px] -translate-x-[3px] rounded-full border bg-canvas transition-colors duration-500 md:block",
           expanded ? "border-accent bg-accent" : "border-line-strong"
         )}
       />

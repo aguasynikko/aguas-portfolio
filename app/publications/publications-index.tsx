@@ -45,7 +45,7 @@ export function PublicationsIndex() {
                 className={cn(
                   "rounded-sm border px-3 py-1.5 font-mono text-[10px] uppercase tracking-label transition-all duration-300 ease-noir",
                   isActive
-                    ? "border-accent bg-accent text-base"
+                    ? "border-accent bg-accent text-canvas"
                     : "border-line text-muted hover:border-line-strong hover:text-heading"
                 )}
               >

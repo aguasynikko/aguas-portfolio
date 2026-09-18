@@ -18,7 +18,11 @@ const config: Config = {
       colors: {
         // Semantic tokens resolve to the CSS variables in globals.css, so the
         // same class names produce "noir" in dark mode and "daylight" in light.
-        base: "hsl(var(--base) / <alpha-value>)",
+        // Named `canvas`, not `base`: a `base` colour would generate a
+        // `text-base` utility that collides with Tailwind's built-in
+        // text-base font size, and the colour silently wins — which
+        // painted body copy in the background colour.
+        canvas: "hsl(var(--base) / <alpha-value>)",
         surface: "hsl(var(--surface) / <alpha-value>)",
         "surface-raised": "hsl(var(--surface-raised) / <alpha-value>)",
         line: "hsl(var(--line) / <alpha-value>)",

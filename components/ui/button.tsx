@@ -4,13 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded font-sans text-sm font-medium transition-all duration-300 ease-noir focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded font-sans text-sm font-medium transition-all duration-300 ease-noir focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         // The single loud element on the page — reserved for primary CTAs.
         solid:
-          "bg-accent text-base hover:bg-accent/90 hover:shadow-lift active:scale-[0.99]",
+          "bg-accent text-canvas hover:bg-accent/90 hover:shadow-lift active:scale-[0.99]",
         outline:
           "border border-line-strong bg-transparent text-body hover:border-accent hover:bg-surface hover:text-heading",
         ghost: "bg-transparent text-muted hover:bg-surface hover:text-heading",

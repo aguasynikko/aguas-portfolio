@@ -51,7 +51,7 @@ export function About() {
             ].map((row) => (
               <div
                 key={row.k}
-                className="flex items-baseline justify-between gap-4 bg-base px-4 py-3"
+                className="flex items-baseline justify-between gap-4 bg-canvas px-4 py-3"
               >
                 <dt className="label shrink-0">{row.k}</dt>
                 <dd className="text-right text-sm text-body">{row.v}</dd>

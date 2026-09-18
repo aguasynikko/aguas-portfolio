@@ -166,7 +166,7 @@ export function Hero() {
         <Line delay={0.95} className="mt-10 sm:mt-12">
           <dl className="grid grid-cols-2 gap-px overflow-hidden border border-line bg-line lg:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="bg-base px-4 py-4 sm:px-5 sm:py-5">
+              <div key={stat.label} className="bg-canvas px-4 py-4 sm:px-5 sm:py-5">
                 <dt className="label mb-1.5 leading-relaxed">{stat.label}</dt>
                 <dd className="font-serif text-xl text-heading sm:text-2xl">
                   {stat.value}

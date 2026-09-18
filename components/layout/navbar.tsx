@@ -95,7 +95,7 @@ export function Navbar() {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[60] focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:text-base"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[60] focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:text-canvas"
       >
         Skip to content
       </a>
@@ -104,7 +104,7 @@ export function Navbar() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-noir",
           scrolled
-            ? "border-b border-line bg-base/70 backdrop-blur-xl"
+            ? "border-b border-line bg-canvas/70 backdrop-blur-xl"
             : "border-b border-transparent bg-transparent"
         )}
       >
@@ -179,7 +179,7 @@ export function Navbar() {
         id="mobile-menu"
         hidden={!open}
         className={cn(
-          "fixed inset-0 z-40 bg-base/95 backdrop-blur-xl transition-opacity duration-300 lg:hidden",
+          "fixed inset-0 z-40 bg-canvas/95 backdrop-blur-xl transition-opacity duration-300 lg:hidden",
           open ? "opacity-100" : "pointer-events-none opacity-0"
         )}
       >

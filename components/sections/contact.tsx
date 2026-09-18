@@ -43,7 +43,7 @@ export function Contact() {
                   .map((social) => {
                     const Icon = getIcon(social.icon);
                     return (
-                      <li key={social.label} className="bg-base">
+                      <li key={social.label} className="bg-canvas">
                         <a
                           href={social.href}
                           target="_blank"

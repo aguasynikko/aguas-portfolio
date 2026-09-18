@@ -16,7 +16,7 @@ export function Badge({
         "inline-flex items-center rounded-sm px-2 py-1 font-mono text-[10px] uppercase tracking-label transition-colors duration-300",
         variant === "default" && "border border-line bg-surface-raised text-muted",
         variant === "outline" && "border border-line-strong bg-transparent text-muted",
-        variant === "solid" && "bg-accent text-base",
+        variant === "solid" && "bg-accent text-canvas",
         className
       )}
     >
