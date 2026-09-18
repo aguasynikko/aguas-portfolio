@@ -37,13 +37,6 @@ function Line({
 }
 
 export function Hero() {
-  // Break before the surname rather than after a fixed word count, so the
-  // stack works for any name length. A two-word name gives one word per line;
-  // a longer one keeps the given names together above the surname.
-  const nameParts = person.name.trim().split(/\s+/);
-  const surname = nameParts[nameParts.length - 1];
-  const givenNames = nameParts.slice(0, -1).join(" ");
-
   return (
     <section
       id="hero"
@@ -79,13 +72,10 @@ export function Hero() {
                   {person.name} — {person.titles.slice(0, -1).join(", ")}, and{" "}
                   {person.titles[person.titles.length - 1]}.
                 </span>
-                {givenNames && (
-                  <span aria-hidden className="block">
-                    {givenNames}
-                  </span>
-                )}
-                <span aria-hidden className="block">
-                  {surname}
+                {/* One line. It still wraps on its own if the viewport is
+                    narrow enough, rather than being split at a fixed word. */}
+                <span aria-hidden className="block text-balance">
+                  {person.name}
                 </span>
               </h1>
             </Line>
