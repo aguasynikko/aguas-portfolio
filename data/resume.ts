@@ -233,6 +233,7 @@ export const projects: Project[] = [
       "Tuned hyperparameters with Grid Search CV to improve prediction accuracy.",
     ],
     tech: ["Python", "Streamlit", "Scikit-learn"],
+    image: "/projects/heart-disease-risk.webp",
   },
 ];
 
