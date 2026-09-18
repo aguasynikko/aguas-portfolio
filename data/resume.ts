@@ -175,6 +175,7 @@ export const projects: Project[] = [
       "Shipped a Gradio interface so clinicians could interrogate the guidelines conversationally.",
     ],
     tech: ["Python", "Gradio", "MedCPT", "FAISS", "BGE", "Ollama", "Llama-3"],
+    image: "/projects/rag-clinical-chatbot.webp",
     featured: true,
   },
   {
