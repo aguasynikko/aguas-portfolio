@@ -174,7 +174,7 @@ export function Projects() {
       <div
         role="group"
         aria-label="Filter projects by discipline"
-        className="mask-fade-x -mx-6 mb-6 flex gap-2 overflow-x-auto px-6 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
+        className="mask-fade-x -mx-6 mb-6 flex gap-2 overflow-x-auto px-6 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:[mask-image:none]"
       >
         {filters.map((category) => {
           const isActive = filter === category;
@@ -188,9 +188,10 @@ export function Projects() {
               aria-pressed={isActive}
               className={cn(
                 "shrink-0 rounded-sm border px-3 py-1.5 font-mono text-[10px] uppercase tracking-label transition-all duration-300 ease-noir",
+                "motion-reduce:transform-none",
                 isActive
-                  ? "border-accent bg-accent text-canvas"
-                  : "border-line bg-transparent text-muted hover:border-line-strong hover:text-heading"
+                  ? "scale-[1.06] border-accent bg-accent text-canvas shadow-lift"
+                  : "scale-100 border-line bg-transparent text-muted hover:border-line-strong hover:text-heading"
               )}
             >
               {category}

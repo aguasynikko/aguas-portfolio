@@ -79,7 +79,7 @@ function ExperienceRow({
               <span aria-hidden className="text-muted/60">
                 {pad(index + 1)}
               </span>
-              {entry.kind === "research" ? "Research" : "Employment"}
+              {entry.kind === "research" ? "Research" : "Internship"}
             </p>
             <p className="font-mono text-[11px] uppercase tracking-label text-muted">
               <time>{entry.start}</time>
