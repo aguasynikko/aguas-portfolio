@@ -16,53 +16,69 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
 
+  // Tracks the section under a reading line near the top of the viewport.
+  //
+  // Measured on scroll rather than driven by IntersectionObserver: an observer
+  // only fires when a boundary is crossed, so landing mid-section, resizing,
+  // or a fast scroll that skips the band all left the URL stale. Measuring is
+  // deterministic — whatever is under the line right now wins. rAF keeps it to
+  // one measurement per frame, and the hash is only written when it changes,
+  // which keeps us well clear of the browser's replaceState rate limit.
   useEffect(() => {
-    const onScroll = () => {
+    let frame = 0;
+
+    const measure = () => {
+      frame = 0;
       setScrolled(window.scrollY > 24);
 
-      // Back at the top: drop the hash so the URL reads as the bare page
-      // rather than whichever section was last in view.
-      if (isHome && window.scrollY < 80 && window.location.hash) {
-        window.history.replaceState(null, "", window.location.pathname);
-        setActive("");
+      if (!isHome) return;
+
+      const line = window.innerHeight * 0.35;
+      const atTop = window.scrollY < 80;
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+
+      let current = "";
+
+      if (!atTop) {
+        for (const item of navItems) {
+          const el = document.getElementById(item.href.slice(1));
+          if (!el) continue;
+          const { top, bottom } = el.getBoundingClientRect();
+          if (top <= line && bottom > line) {
+            current = item.href;
+            break;
+          }
+        }
+        // The final section is often too short to reach the line.
+        if (!current && atBottom) current = navItems[navItems.length - 1].href;
+      }
+
+      setActive(current);
+
+      const currentHash = window.location.hash;
+      if (currentHash !== current) {
+        window.history.replaceState(
+          null,
+          "",
+          current || window.location.pathname
+        );
       }
     };
-    onScroll();
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(measure);
+    };
+
+    measure();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
-
-  // Track the section in view: highlights the tab and keeps the address bar
-  // in sync. IntersectionObserver is far cheaper than measuring offsets on
-  // every scroll event.
-  useEffect(() => {
-    if (!isHome) return;
-    const ids = navItems.map((n) => n.href.replace("#", ""));
-    const sections = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-
-        const hash = `#${visible.target.id}`;
-        setActive(hash);
-
-        // replaceState, not pushState: the back button should leave the page,
-        // not walk back through every section the reader scrolled past.
-        if (window.location.hash !== hash) {
-          window.history.replaceState(null, "", hash);
-        }
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.5] }
-    );
-
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [isHome]);
 
   // Lock body scroll while the mobile sheet is open.
