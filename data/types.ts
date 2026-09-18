@@ -143,7 +143,10 @@ export interface Person {
   bio: string[];
   photo: string;
   photoAlt: string;
+  /** One-page résumé. */
   resumeUrl: string;
+  /** Long-form CV — publications, full project list. */
+  cvUrl: string;
   location: string;
   /** Short factual line above the name — what the work is, not what's wanted. */
   kicker: string;

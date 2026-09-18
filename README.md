@@ -71,6 +71,10 @@ source from your CV:
 
 Two deliberate choices worth knowing about:
 
+- **Two documents are published:** `public/resume.pdf` is the one-page
+  résumé and `public/cv.pdf` is the long-form CV. Both are served from
+  `person.resumeUrl` / `person.cvUrl`, so replacing either file is enough to
+  update the download — no code change needed.
 - **Your phone number is not rendered anywhere on the site.** It lives in
   `person.phone` and in the PDF, but public phone numbers get harvested by
   scrapers. To display it anyway, add it to the contact section yourself.
@@ -230,7 +234,7 @@ lib/
   jsonld.ts               Person, WebSite, ScholarlyArticle schemas
   contact-schema.ts       Zod schema shared by client form and API route
 public/
-  ynikko-aguas.jpg · resume.pdf · projects/
+  ynikko-aguas.jpg · resume.pdf · cv.pdf · projects/
 ```
 
 ## Notes on the implementation

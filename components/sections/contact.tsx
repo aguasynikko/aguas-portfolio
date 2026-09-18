@@ -72,13 +72,24 @@ export function Contact() {
             </div>
 
             <div>
-              <p className="label mb-5">Résumé</p>
-              <Button asChild variant="outline">
-                <a href={person.resumeUrl} download>
-                  Download PDF
-                  <Download />
-                </a>
-              </Button>
+              <p className="label mb-3">Documents</p>
+              <div className="flex flex-wrap gap-3">
+                <Button asChild variant="outline">
+                  <a href={person.resumeUrl} download>
+                    Résumé
+                    <Download />
+                  </a>
+                </Button>
+                <Button asChild variant="outline">
+                  <a href={person.cvUrl} download>
+                    CV
+                    <Download />
+                  </a>
+                </Button>
+              </div>
+              <p className="mt-3 font-mono text-[10px] uppercase tracking-label text-muted/70">
+                Résumé is one page · CV covers publications in full
+              </p>
             </div>
           </div>
         </Reveal>
