@@ -142,6 +142,7 @@ export const projects: Project[] = [
       "Ollama",
       "Raspberry Pi 5",
     ],
+    image: "/projects/edge-ai-food-label.webp",
     featured: true,
   },
   {
