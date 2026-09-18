@@ -268,7 +268,7 @@ export const publications: Publication[] = [
   {
     id: "kidney-segmentation",
     title:
-      "Multi-Class Kidney Abnormality Segmentation in CT Imaging Using a YOLOv12 Architecture",
+      "Clinically Oriented Deep Learning Framework for Multi-Class Kidney Abnormality Instance Segmentation in CT Images",
     authors: ["Yñikko Arzee Neo Aguas"], // TODO: add co-authors; you are first author
     venue: "IEEE", // TODO: full conference or journal name
     publisher: "IEEE",
