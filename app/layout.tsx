@@ -5,6 +5,8 @@ import { Toaster } from "sonner";
 import { Footer } from "@/components/layout/footer";
 import { GrainOverlay } from "@/components/layout/grain-overlay";
 import { Navbar } from "@/components/layout/navbar";
+import { SplashScreen } from "@/components/layout/splash-screen";
+import { BackToTop } from "@/components/layout/back-to-top";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { JsonLd } from "@/components/ui/json-ld";
 import { person } from "@/data/resume";
@@ -33,7 +35,10 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${person.name} — ${person.title}`,
+    // Browser tab shows the name alone. The role still appears in the Open
+    // Graph title and the meta description, so share cards and search
+    // snippets keep it.
+    default: person.name,
     template: `%s — ${person.name}`,
   },
   description: person.tagline,
@@ -95,12 +100,18 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <SplashScreen />
           <GrainOverlay />
           <Navbar />
           <div className="relative z-10">{children}</div>
           <Footer />
+          <BackToTop />
           <Toaster
             position="bottom-right"
+            // Lifted clear of the back-to-top button, which occupies the same
+            // corner. Without this, a copied-citation or sent-message toast
+            // lands directly on top of it.
+            offset="5.5rem"
             toastOptions={{
               classNames: {
                 toast:

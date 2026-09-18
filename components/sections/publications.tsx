@@ -22,14 +22,6 @@ export function Publications() {
         eyebrow="Publications"
         title="The archive."
         lead="Peer-reviewed work in medical imaging and clinical natural language processing."
-        action={
-          <Button asChild variant="outline" size="sm">
-            <Link href="/publications">
-              Full index
-              <ArrowRight />
-            </Link>
-          </Button>
-        }
       />
 
       <div>

@@ -40,7 +40,11 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pb-10 pt-24 sm:pb-12 sm:pt-28"
+      // min-h-svh, not vh: on mobile the browser chrome shrinks the visual
+      // viewport, and vh would push content under it. Centring the content
+      // vertically keeps the hero owning the first screen, so the next
+      // section only appears once the reader scrolls.
+      className="relative flex min-h-svh flex-col justify-center overflow-hidden pb-14 pt-20 sm:pb-16 sm:pt-24"
       aria-labelledby="hero-heading"
     >
       {/* Spotlight — light cutting through darkness. */}

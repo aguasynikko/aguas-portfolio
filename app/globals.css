@@ -114,6 +114,146 @@
   }
 }
 
+/* ---------------------------------------------------------------------------
+   Theme cross-fade.
+
+   The View Transitions API snapshots the page before and after the theme
+   swaps. Both default animations are disabled here because the toggle drives
+   its own circular wipe on ::view-transition-new(root); leaving the defaults
+   on would cross-fade underneath the wipe and muddy it. The new snapshot sits
+   above the old one so the wipe reveals rather than dissolves.
+   --------------------------------------------------------------------------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Opening splash — a four second sequence, all CSS.
+
+     0.00s  handle strokes on
+     0.00s  case outline draws
+     0.90s  case floods with colour
+     1.50s  keyhole appears
+     2.30s  keyhole turns a quarter-turn clockwise
+     3.45s  panel dismisses
+     4.00s  done
+
+   No JavaScript anywhere: the panel ends at visibility:hidden via `forwards`,
+   so it clears itself even if hydration never happens. The global
+   reduced-motion rule collapses every duration, and because the fill mode is
+   `forwards` the end states still apply — the splash simply is not there.
+   --------------------------------------------------------------------------- */
+@keyframes splash-dismiss {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes splash-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes splash-flood {
+  from {
+    fill-opacity: 0;
+  }
+  to {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes splash-lock-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splash-lock-turn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: hsl(var(--base));
+  animation: splash-dismiss 0.55s cubic-bezier(0.22, 1, 0.36, 1) 3.45s forwards;
+}
+
+.splash-mark {
+  width: 5rem;
+  height: 5rem;
+  stroke: hsl(var(--heading));
+  stroke-width: 1.1;
+}
+
+.splash-handle,
+.splash-case {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: splash-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* The handle lands first so the case reads as the closing stroke. */
+.splash-handle {
+  animation-duration: 0.6s;
+}
+
+.splash-case {
+  fill: hsl(var(--heading));
+  fill-opacity: 0;
+  animation:
+    splash-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    splash-flood 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
+}
+
+.splash-lock {
+  fill: hsl(var(--base));
+  stroke: none;
+  opacity: 0;
+  /* fill-box so the quarter-turn pivots on the keyhole itself rather than
+     the origin of the whole 24x24 canvas. */
+  transform-box: fill-box;
+  transform-origin: center;
+  animation:
+    splash-lock-in 0.45s ease-out 1.5s forwards,
+    splash-lock-turn 0.8s cubic-bezier(0.65, 0, 0.35, 1) 2.3s forwards;
+}
+
 @layer components {
   /* Small uppercase monospace label — the site's connective tissue. */
   .label {
