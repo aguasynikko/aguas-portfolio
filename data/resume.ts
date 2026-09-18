@@ -220,6 +220,7 @@ export const projects: Project[] = [
       "Integrated secure authentication and tracked feature development with Jira across mobile and desktop.",
     ],
     tech: ["React", "Firebase", "Jira"],
+    image: "/projects/myapt-dashboard.webp",
   },
   {
     slug: "heart-disease-risk",
