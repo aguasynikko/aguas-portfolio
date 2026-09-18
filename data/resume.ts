@@ -160,6 +160,22 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "rag-clinical-chatbot",
+    categories: ["Artificial Intelligence"],
+    title: "RAG Clinical Guideline Chatbot",
+    year: "2026",
+    blurb:
+      "A retrieval-augmented chatbot answering atrial-fibrillation questions strictly from ESC clinical guidelines — built as a project, later published as an IEEE paper.",
+    highlights: [
+      "Grounded every answer in 100+ pages of ESC atrial-fibrillation guidelines, reaching a BERTScore F1 of 0.835 against clinician-style queries.",
+      "Built the retrieval pipeline with biomedical embeddings, vector search, and reranking, raising answer faithfulness to 8.75/10 across 20 clinical queries.",
+      "Deployed quantized LLMs to hit 0.7s latency and 7.9 tokens/sec, fast enough for real-time decision support.",
+      "Shipped a Gradio interface so clinicians could interrogate the guidelines conversationally.",
+    ],
+    tech: ["Python", "Gradio", "MedCPT", "FAISS", "BGE", "Ollama", "Llama-3"],
+    featured: true,
+  },
+  {
     slug: "earthquake-analysis",
     categories: ["Data Science"],
     title: "Earthquake Data Analysis & Prediction",
@@ -396,7 +412,7 @@ export const skills: Skill[] = [
 export const stats = [
   // Derived from the skills array, so it can never drift out of date.
   { value: String(skills.length), label: "Technologies in my stack" },
-  { value: "6", label: "Projects across AI, data & web" },
+  { value: String(projects.length), label: "Projects across AI, data & web" },
   { value: "96%", label: "Top model accuracy" },
   { value: "2", label: "IEEE publications" },
 ];
