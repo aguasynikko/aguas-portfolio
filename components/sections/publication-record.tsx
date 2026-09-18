@@ -6,7 +6,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { person } from "@/data/resume";
 import type { Publication } from "@/data/types";
-import { toAPA, toBibTeX } from "@/lib/citation";
+import { isSamePerson, toAPA, toBibTeX } from "@/lib/citation";
 import { cn, pad } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 
@@ -125,7 +125,8 @@ export function PublicationRecord({
                 {i > 0 && <span aria-hidden>, </span>}
                 <span
                   className={cn(
-                    author === person.name && "font-medium text-heading"
+                    isSamePerson(author, person.name) &&
+                      "font-medium text-heading"
                   )}
                 >
                   {author}

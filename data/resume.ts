@@ -257,9 +257,24 @@ export const publications: Publication[] = [
     id: "rag-afib",
     title:
       "Open-Source LLMs for Evidence-Grounded Clinical Question Answering: A RAG Framework Based on the 2024 ESC Atrial Fibrillation Guidelines",
-    authors: ["Yñikko Arzee Neo Aguas"], // TODO: add co-authors in citation order
-    venue: "IEEE", // TODO: full conference or journal name
+    authors: [
+      "Carl Emmanuel M. Macabales",
+      "Rolando R. Magat",
+      "Yñikko Arzee Neo D. Aguas",
+      "Lysa V. Comia",
+    ],
+    venue:
+      "2026 22nd IEEE International Colloquium on Signal Processing & Its Applications (CSPA)",
     publisher: "IEEE",
+    pages: "460-465",
+    doi: "10.1109/CSPA68262.2026.11517831",
+    keywords: [
+      "atrial fibrillation",
+      "clinical decision support",
+      "large language models",
+      "retrieval-augmented generation",
+      "semantic similarity",
+    ],
     year: 2026,
     type: "Conference",
     abstract:
@@ -271,7 +286,6 @@ export const publications: Publication[] = [
     ],
     tech: ["Python", "Gradio", "MedCPT", "FAISS", "BGE", "Ollama"],
     link: "https://ieeexplore.ieee.org/document/11517831",
-    // TODO: add the DOI once assigned — it makes the citation complete.
   },
   {
     id: "kidney-segmentation",

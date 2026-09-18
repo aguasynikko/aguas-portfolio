@@ -102,6 +102,8 @@ export interface Publication {
   /** Optional, for citation completeness. */
   pages?: string;
   publisher?: string;
+  /** Index terms, emitted in the BibTeX entry. */
+  keywords?: string[];
 }
 
 export interface Education {
