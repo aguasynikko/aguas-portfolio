@@ -121,10 +121,10 @@ export const experience: Experience[] = [
 ];
 
 /* ------------------------------------------------------------------ projects
+ * Every project has a thumbnail; a new one without an `image` falls back to a
+ * generated monogram plate.
  * TODO: `demo` and `repo` are omitted everywhere — no links were on your CV.
  * Add them per project and the card buttons appear automatically.
- * TODO: drop a 16:10 image in /public/projects and set `image` to light up
- * the thumbnail; without it the card renders a generated monogram plate.
  * ---------------------------------------------------------------------- */
 export const projects: Project[] = [
   {
@@ -247,10 +247,10 @@ export const projects: Project[] = [
 ];
 
 /* -------------------------------------------------------------- publications
- * TODO: add co-authors (only your name is listed — citations need the rest),
- * the exact venue name, DOI, and IEEE Xplore link for each record.
- * The abstracts below are drawn from your CV bullets; replace them with the
- * papers' real abstracts when convenient.
+ * Both records are complete: published titles and abstracts, full author
+ * lists in citation order, venue, pages, DOI, index terms, and the Xplore
+ * link. Copy APA and Copy BibTeX are generated from these fields, so keep
+ * them filled in for anything added later.
  * ---------------------------------------------------------------------- */
 export const publications: Publication[] = [
   {
@@ -291,9 +291,25 @@ export const publications: Publication[] = [
     id: "kidney-segmentation",
     title:
       "Clinically Oriented Deep Learning Framework for Multi-Class Kidney Abnormality Instance Segmentation in CT Images",
-    authors: ["Yñikko Arzee Neo Aguas"], // TODO: add co-authors; you are first author
-    venue: "IEEE", // TODO: full conference or journal name
+    authors: [
+      "Yñikko Arzee Neo D. Aguas",
+      "Rolando R. Magat",
+      "Carl Emmanuel M. Macabales",
+      "Ralph Dwayne C. Umali",
+      "Lysa V. Comia",
+    ],
+    venue:
+      "2026 6th International Conference on Image Processing and Capsule Networks (ICIPCN)",
     publisher: "IEEE",
+    pages: "63-69",
+    doi: "10.1109/ICIPCN67432.2026.11438968",
+    keywords: [
+      "instance segmentation",
+      "kidney abnormalities",
+      "medical image analysis",
+      "streamlit deployment",
+      "YOLOv12",
+    ],
     year: 2026,
     type: "Conference",
     abstract:
@@ -305,7 +321,6 @@ export const publications: Publication[] = [
     ],
     tech: ["Python", "YOLOv12", "Roboflow", "Streamlit"],
     link: "https://ieeexplore.ieee.org/document/11438968",
-    // TODO: add the DOI once assigned — it makes the citation complete.
   },
 ];
 
