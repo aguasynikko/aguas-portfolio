@@ -1,102 +1,67 @@
-"use client";
-
-import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
+type RevealTag = "div" | "section" | "li" | "article" | "span";
 
 /**
- * Slow fade-and-rise on scroll. `once` keeps it from replaying, which is both
- * calmer and cheaper. With reduced motion the content renders immediately at
- * full opacity — no transform, no delay.
+ * Fade-and-rise on scroll, driven entirely by CSS.
+ *
+ * This deliberately uses no JavaScript. The previous implementation relied on
+ * Framer Motion's `whileInView`, which server-renders the element at
+ * `opacity: 0` and only reveals it once React hydrates — so a hydration
+ * failure (a browser extension mutating the DOM was enough) left most of the
+ * page permanently blank.
+ *
+ * Now the animation is a scroll-driven CSS animation behind an `@supports`
+ * guard. Browsers without `animation-timeline` simply render the content, and
+ * a browser where JS never runs at all renders it too. The motion is an
+ * enhancement; the content no longer depends on it.
+ *
+ * `delay` is kept for call-site compatibility and maps to an offset in the
+ * scroll range rather than to seconds.
  */
 export function Reveal({
   children,
   className,
   delay = 0,
-  y = 24,
-  as = "div",
+  as: Tag = "div",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  /** Retained for API compatibility; the CSS translate distance is fixed. */
   y?: number;
-  as?: "div" | "section" | "li" | "article" | "span";
+  as?: RevealTag;
 }) {
-  const reduced = useReducedMotion();
-  const MotionTag = motion[as];
-
-  if (reduced) {
-    const Tag = as;
-    return <Tag className={className}>{children}</Tag>;
-  }
-
   return (
-    <MotionTag
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, delay, ease: EASE }}
+    <Tag
+      className={cn("reveal", className)}
+      style={{ "--reveal-delay": delay } as CSSProperties}
     >
       {children}
-    </MotionTag>
+    </Tag>
   );
 }
 
-/** Parent that staggers its Reveal-less children — used by the tech grid. */
-export function Stagger({
+/**
+ * Staggered variant: each child is offset a little further along the scroll
+ * range, so a grid resolves in sequence rather than all at once.
+ */
+export function RevealItem({
   children,
   className,
-  stagger = 0.04,
-  delayChildren = 0,
+  index = 0,
 }: {
   children: ReactNode;
   className?: string;
-  stagger?: number;
-  delayChildren?: number;
+  index?: number;
 }) {
-  const reduced = useReducedMotion();
-
-  if (reduced) return <div className={className}>{children}</div>;
-
-  const variants: Variants = {
-    hidden: {},
-    show: { transition: { staggerChildren: stagger, delayChildren } },
-  };
-
   return (
-    <motion.div
-      className={className}
-      variants={variants}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-60px" }}
+    <div
+      className={cn("reveal", className)}
+      style={{ "--reveal-delay": index * 0.04 } as CSSProperties}
     >
       {children}
-    </motion.div>
-  );
-}
-
-export const staggerItem: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
-};
-
-/** Child of <Stagger>. */
-export function StaggerItem({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  const reduced = useReducedMotion();
-  if (reduced) return <div className={className}>{children}</div>;
-  return (
-    <motion.div variants={staggerItem} className={cn(className)}>
-      {children}
-    </motion.div>
+    </div>
   );
 }

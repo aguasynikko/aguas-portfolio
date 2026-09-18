@@ -10,7 +10,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Stagger, StaggerItem } from "@/components/ui/reveal";
+import { RevealItem } from "@/components/ui/reveal";
 import { Section, SectionHeading } from "@/components/ui/section";
 
 const CATEGORY_ORDER: SkillCategory[] = [
@@ -117,17 +117,16 @@ export function Skills() {
                 </span>
               </div>
 
-              <Stagger
-                className="flex flex-col gap-1.5"
-                stagger={0.03}
-                delayChildren={groupIndex * 0.05}
-              >
-                {items.map((skill) => (
-                  <StaggerItem key={`${category}-${skill.name}`}>
+              <div className="flex flex-col gap-1.5">
+                {items.map((skill, i) => (
+                  <RevealItem
+                    key={`${category}-${skill.name}`}
+                    index={groupIndex + i}
+                  >
                     <TechRow skill={skill} />
-                  </StaggerItem>
+                  </RevealItem>
                 ))}
-              </Stagger>
+              </div>
             </div>
           ))}
         </div>

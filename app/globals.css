@@ -176,6 +176,35 @@
     color: transparent;
   }
 
+  /* Scroll reveal, CSS-only.
+     Content is visible by default and the animation is layered on top, so
+     nothing depends on JavaScript running. Guarded twice: `@supports` skips
+     browsers without scroll-driven animations (Safari, Firefox), which simply
+     show the content, and reduced-motion users never get it either. */
+  @keyframes reveal-rise {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        animation: reveal-rise linear both;
+        animation-timeline: view();
+        /* --reveal-delay shifts the element further along the scroll range,
+           which is how staggering works without wall-clock delays. */
+        animation-range: entry calc(var(--reveal-delay, 0) * 25%) entry
+          calc(48% + var(--reveal-delay, 0) * 25%);
+      }
+    }
+  }
+
   /* Hero line reveal.
      Deliberately CSS rather than Framer Motion: the hero headline is the LCP
      element, and a JS-driven `initial={{opacity:0}}` would server-render it
