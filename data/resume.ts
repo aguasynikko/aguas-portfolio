@@ -51,21 +51,25 @@ export const person: Person = {
       handle: "/in/ynikko-aguas-jn010605",
     },
     {
-      // TODO: replace with your real GitHub URL — it was not on your CV.
       label: "GitHub",
-      href: "https://github.com/ynikko-aguas",
+      href: "https://github.com/aguasynikko",
       icon: "Github",
-      handle: "@ynikko-aguas",
+      handle: "@aguasynikko",
     },
     {
-      // TODO: your CV links "Aguas E-Portfolio" — point this at that URL,
-      // or delete this entry entirely if it is superseded by this site.
-      label: "E-Portfolio",
-      href: "https://github.com/ynikko-aguas",
-      icon: "Globe",
-      handle: "Project archive",
+      label: "IEEE Xplore",
+      href: "https://ieeexplore.ieee.org/author/279252246342958",
+      icon: "Ieee",
+      handle: "Author profile",
     },
-    // TODO (optional): add Google Scholar / ORCID once you have them.
+    {
+      label: "ResearchGate",
+      href: "https://www.researchgate.net/profile/Ynikko-Arzee-Neo-Aguas",
+      icon: "ResearchGate",
+      handle: "Research profile",
+    },
+    // TODO (optional): add ORCID once you have one — it is the identifier
+    // most publishers and grant systems key off.
     // { label: "ORCID", href: "https://orcid.org/0000-0000-0000-0000",
     //   icon: "Orcid", handle: "0000-0000-0000-0000" },
   ],
