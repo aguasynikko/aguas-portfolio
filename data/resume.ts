@@ -394,7 +394,8 @@ export const skills: Skill[] = [
  * Deliberately one from each track: engineering, breadth, data, research.
  */
 export const stats = [
-  { value: "15+", label: "Production modules shipped" },
+  // Derived from the skills array, so it can never drift out of date.
+  { value: String(skills.length), label: "Technologies in my stack" },
   { value: "6", label: "Projects across AI, data & web" },
   { value: "96%", label: "Top model accuracy" },
   { value: "2", label: "IEEE publications" },
