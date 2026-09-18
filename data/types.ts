@@ -107,7 +107,8 @@ export interface Publication {
 export interface Education {
   school: string;
   degree: string;
-  focus?: string;
+  /** Bare field of specialization, e.g. "Artificial Intelligence". */
+  specialization?: string;
   location?: string;
   start: string;
   end: string;

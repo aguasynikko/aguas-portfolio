@@ -38,8 +38,10 @@ export function EducationSection() {
                 </p>
                 <h3 className="mt-3 text-xl leading-snug">{edu.school}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body sm:text-base">{edu.degree}</p>
-                {edu.focus && (
-                  <p className="mt-1 text-sm text-muted">{edu.focus}</p>
+                {edu.specialization && (
+                  <p className="mt-1 text-sm text-muted">
+                    Specialization in {edu.specialization}
+                  </p>
                 )}
                 {edu.location && <p className="label mt-4">{edu.location}</p>}
                 {edu.notes && (

@@ -43,7 +43,9 @@ export function About() {
           <dl className="mt-8 space-y-px overflow-hidden border border-line bg-line">
             {[
               { k: "Based in", v: person.location },
-              { k: "Studying", v: `${education[0].degree}, ${education[0].school}` },
+              { k: "Degree", v: education[0].degree },
+              { k: "Specialization", v: education[0].specialization ?? "" },
+              { k: "University", v: education[0].school },
               { k: "Built", v: `${projects.length} projects across AI, data & web` },
               { k: "Published", v: `${publications.length} IEEE papers` },
             ].map((row) => (

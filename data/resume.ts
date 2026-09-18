@@ -22,7 +22,7 @@ export const person: Person = {
   tagline:
     "I build AI systems, turn data into decisions, and ship full-stack products — from CT segmentation models to platforms teams use every day.",
   bio: [
-    "I'm a Computer Science student at Mapúa University specializing in Artificial Intelligence. I work across three tracks that keep feeding each other: building machine-learning systems, analyzing data until it says something useful, and shipping the software that puts both in front of people.",
+    "I'm a Computer Scientist specializing in Artificial Intelligence. I work across three tracks that keep feeding each other: building machine-learning systems, analyzing data until it says something useful, and shipping the software that puts both in front of people.",
     "On the engineering side, I shipped 15+ production modules for an internal platform serving 30+ people — architecting the React and Supabase data layer, enforcing role-based access across 25+ PostgreSQL migrations, and building an in-app AI assistant with real-time sync. On the data side, I've built end-to-end analysis tools that go from raw exploratory work through to live prediction, paired with plain-language interpretation for non-technical readers.",
     "On the research side, I've published two IEEE papers in medical imaging and clinical NLP. What ties all of it together is the gap between something that scores well and something people can actually trust — evaluation you can defend, latency budgets you can meet, and interfaces that don't hide uncertainty.",
   ],
@@ -291,7 +291,7 @@ export const education: Education[] = [
   {
     school: "Mapúa University",
     degree: "Bachelor of Science in Computer Science",
-    focus: "Specialization in Artificial Intelligence",
+    specialization: "Artificial Intelligence",
     location: "Makati City, Philippines",
     start: "Aug. 2023",
     end: "Oct. 2026",
