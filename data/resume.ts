@@ -120,8 +120,8 @@ export const experience: Experience[] = [
 /* ------------------------------------------------------------------ projects
  * Every project has a thumbnail; a new one without an `image` falls back to a
  * generated monogram plate.
- * TODO: `demo` and `repo` are omitted everywhere — no links were on your CV.
- * Add them per project and the card buttons appear automatically.
+ * `demo` / `repo` drive the card's link row — set either and the button
+ * appears automatically, opening in a new tab.
  * ---------------------------------------------------------------------- */
 export const projects: Project[] = [
   {
@@ -146,6 +146,8 @@ export const projects: Project[] = [
       "Ollama",
       "Raspberry Pi 5",
     ],
+    demo:
+      "https://drive.google.com/file/d/19kWLXOSkczKEF9_A_YcGSoNUWGqapb2V/view?usp=sharing",
     image: "/projects/edge-ai-food-label.webp",
     featured: true,
   },
@@ -162,6 +164,7 @@ export const projects: Project[] = [
       "Shipped a Streamlit interface that runs inference locally, so patient imaging never leaves the machine.",
     ],
     tech: ["Python", "YOLOv12", "Roboflow", "Streamlit"],
+    repo: "https://github.com/cemmacabales/KidneyDetection2D",
     image: "/projects/kidney-segmentation.webp",
     featured: true,
   },
@@ -179,6 +182,7 @@ export const projects: Project[] = [
       "Shipped a Gradio interface so clinicians could interrogate the guidelines conversationally.",
     ],
     tech: ["Python", "Gradio", "MedCPT", "FAISS", "BGE", "Ollama", "Llama-3"],
+    repo: "https://github.com/cemmacabales/AFIB",
     image: "/projects/rag-clinical-chatbot.webp",
     featured: true,
   },
@@ -195,6 +199,8 @@ export const projects: Project[] = [
       "Designed geospatial density maps and KDE/temporal plots, each paired with plain-language interpretations for non-technical readers.",
     ],
     tech: ["Python", "Streamlit", "Scikit-learn", "pandas", "Seaborn"],
+    demo:
+      "https://earfquake-atjsxhtyuvwrcjwyfbjyx2.streamlit.app",
     image: "/projects/earthquake-analysis.webp",
     featured: true,
   },
@@ -210,6 +216,7 @@ export const projects: Project[] = [
       "Built custom account-management modules, backed by Supabase for secure cloud storage.",
     ],
     tech: ["React", "Supabase", "shadcn/ui", "TypeScript"],
+    demo: "https://vault-nine-iota.vercel.app",
     image: "/projects/vault-file-manager.webp",
   },
   {
@@ -224,6 +231,7 @@ export const projects: Project[] = [
       "Integrated secure authentication and tracked feature development with Jira across mobile and desktop.",
     ],
     tech: ["React", "Firebase", "Jira"],
+    demo: "https://myapthome.netlify.app/login",
     image: "/projects/myapt-dashboard.webp",
   },
   {
@@ -239,6 +247,7 @@ export const projects: Project[] = [
       "Tuned hyperparameters with Grid Search CV to improve prediction accuracy.",
     ],
     tech: ["Python", "Streamlit", "Scikit-learn"],
+    repo: "https://github.com/aguasynikko/Heart-Disease-Risk-Prediction",
     image: "/projects/heart-disease-risk.webp",
   },
 ];

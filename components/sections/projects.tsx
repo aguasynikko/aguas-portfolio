@@ -52,6 +52,11 @@ function MonogramPlate({ project }: { project: Project }) {
   );
 }
 
+/** A Drive link is the paper PDF, not a deployment — label it honestly. */
+function demoLabel(url: string) {
+  return url.includes("drive.google.com") ? "Read paper" : "Live demo";
+}
+
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const primaryLink = project.demo ?? project.repo;
 
@@ -122,7 +127,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-label text-muted transition-colors hover:text-accent"
               >
-                Live demo
+                {demoLabel(project.demo)}
                 <ArrowUpRight aria-hidden className="size-3" />
               </a>
             )}
@@ -135,6 +140,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               >
                 <Github aria-hidden className="size-3" />
                 Source
+                <ArrowUpRight aria-hidden className="size-3" />
               </a>
             )}
           </div>
