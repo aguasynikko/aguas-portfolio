@@ -26,7 +26,7 @@ export const person: Person = {
     "On the engineering side, I shipped 15+ production modules for an internal platform serving 30+ people — architecting the React and Supabase data layer, enforcing role-based access across 25+ PostgreSQL migrations, and building an in-app AI assistant with real-time sync. On the data side, I've built end-to-end analysis tools that go from raw exploratory work through to live prediction, paired with plain-language interpretation for non-technical readers.",
     "On the research side, I've published two IEEE papers in medical imaging and clinical NLP. What ties all of it together is the gap between something that scores well and something people can actually trust — evaluation you can defend, latency budgets you can meet, and interfaces that don't hide uncertainty.",
   ],
-  photo: "/ynikko-aguas.jpg",
+  photo: "/ynikko-aguas.webp",
   photoAlt: "Portrait of Yñikko Aguas",
   resumeUrl: "/resume.pdf",
   resumeFileName: "Aguas_Resume.pdf",

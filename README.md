@@ -235,7 +235,7 @@ lib/
   jsonld.ts               Person, WebSite, ScholarlyArticle schemas
   contact-schema.ts       Zod schema shared by client form and API route
 public/
-  ynikko-aguas.jpg · resume.pdf · cv.pdf · projects/
+  ynikko-aguas.webp · resume.pdf · cv.pdf · projects/
 ```
 
 ## Notes on the implementation
