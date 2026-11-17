@@ -24,6 +24,7 @@ export const person: Person = {
   bio: [
     "I'm a Computer Scientist specializing in Artificial Intelligence. I work across three tracks that keep feeding each other: building AI systems, analyzing data until it says something useful, and shipping the software that puts both in front of people.",
     "On the engineering side, I shipped 15+ production modules for an internal platform serving 30+ people — architecting the React and Supabase data layer, enforcing role-based access across 25+ PostgreSQL migrations, and building an in-app AI assistant with real-time sync. On the data side, I've built end-to-end analysis tools that go from raw exploratory work through to live prediction, paired with plain-language interpretation for non-technical readers.",
+    "As a data analytics intern, I built ETL pipelines, star schema data models, and interactive business intelligence dashboards in Qlik Sense and Power BI using SQL (PostgreSQL), and developed a bilingual RAG customer assistant for retail banking with hybrid search, OIDC-secured tools, and 300+ automated tests.",
     "On the research side, I've published two IEEE papers in medical imaging and clinical NLP. What ties all of it together is the gap between something that scores well and something people can actually trust — evaluation you can defend, latency budgets you can meet, and interfaces that don't hide uncertainty.",
   ],
   photo: "/ynikko-aguas.webp",
@@ -90,6 +91,47 @@ export const navItems: NavItem[] = [
  * its own section, so the two are never conflated.
  * ------------------------------------------------------------------------ */
 export const experience: Experience[] = [
+  {
+    id: "micropinnacle",
+    role: "Data Analytics Intern",
+    company: "Micropinnacle Technology Corporation",
+    start: "Sep. 2026",
+    end: "Nov. 2026",
+    sortKey: "2026-09",
+    kind: "work",
+    summary:
+      "Delivered an enrollment analytics dashboard for PBSP and an AI customer assistant for retail banking (client demo for LandBank).",
+    achievements: [
+      {
+        text: "Built an end-to-end Qlik Sense dashboard for PBSP on 3 school years of DepEd public school enrollment data (46,702 schools, about 20.9 million students per year), designing a star schema data model with a 1.8 million row fact table.",
+        tech: ["Qlik Sense", "Qlik Script", "QVD"],
+      },
+      {
+        text: "Developed a 3-layer ETL pipeline (extract, transform, load) in static and fully dynamic versions, unpivoting 6 wide Excel sheets with configuration-driven mappings so new school years load with no script changes.",
+        tech: ["Data Modeling", "ETL", "Scripting"],
+      },
+      {
+        text: "Rebuilt the ETL pipeline as 3 no-code Qlik Data Flows producing 11 QVD outputs, with a one-line path switch in the load script that reproduced identical totals across all three approaches.",
+        tech: ["Qlik Data Flow"],
+      },
+      {
+        text: "Designed an interactive dashboard, analysis, and report interface with 13 visualizations using set analysis and dynamic titles, and presented findings to PBSP stakeholders.",
+        tech: ["Data Visualization", "Set Analysis"],
+      },
+      {
+        text: "Built a bilingual (English/Filipino) AI customer assistant for retail banking (client demo for LandBank) using hybrid vector and keyword search with Reciprocal Rank Fusion over 21 bank documents; answers cite their sources and hand off to a live agent when confidence is low, reaching 100% hit rate@5 and 97.6% faithfulness on an 82-question evaluation set.",
+        tech: ["Python", "FastAPI", "PostgreSQL/pgvector", "bge-m3", "LiteLLM"],
+      },
+      {
+        text: "Secured personal-account questions behind OIDC login with token-scoped, read-only tools so the LLM never chooses whose data it reads, achieving 100% auth enforcement (40/40), customer isolation (32/32) and prompt-injection resistance (22/22), with zero personal figures across 22 audited traces.",
+        tech: ["Keycloak", "PKCE", "JWT", "Langfuse"],
+      },
+      {
+        text: "Delivered the full stack as 6 Docker services with 300+ automated tests and a Next.js banking site, and designed on-prem, hybrid and cloud (AWS/Azure) deployment architectures with costing for the client proposal.",
+        tech: ["Next.js", "Docker", "Playwright"],
+      },
+    ],
+  },
   {
     id: "exoasia",
     role: "Software Engineer Intern",
@@ -202,6 +244,21 @@ export const projects: Project[] = [
     demo:
       "https://earfquake-atjsxhtyuvwrcjwyfbjyx2.streamlit.app",
     image: "/projects/earthquake-analysis.webp",
+    featured: true,
+  },
+  {
+    slug: "olist-ecommerce-analysis",
+    categories: ["Data Science"],
+    title: "Olist E-Commerce Sales & Delivery Analysis",
+    year: "2026",
+    blurb:
+      "An end-to-end SQL and Power BI analysis of about 100K Brazilian e-commerce orders, tracing how late deliveries drag down customer reviews.",
+    highlights: [
+      "Cleaned and modeled 9 related tables (about 100K orders) in PostgreSQL using CTEs and window functions, documenting and resolving 8 data quality issues and building a star schema of fact and dimension tables for reporting.",
+      "Built a 3-page Power BI dashboard with 12 DAX measures (MoM revenue growth, average order value, late delivery rate, review score), with slicers and drill-through across product, seller, and state.",
+      "Found that late deliveries (about 8% of orders) lowered average review scores by more than 1.5 points, and recommended carrier SLA renegotiation in the highest-delay states, supported by written KPI definitions and a documented findings report on GitHub.",
+    ],
+    tech: ["PostgreSQL", "SQL", "Power BI", "DAX"],
     featured: true,
   },
   {
@@ -337,7 +394,7 @@ export const education: Education[] = [
     specialization: "Artificial Intelligence",
     location: "Makati City, Philippines",
     start: "Aug. 2023",
-    end: "Oct. 2026",
+    end: "Sep. 2026",
     notes: [
       "Two IEEE-published papers completed during the program, in medical imaging and clinical NLP.",
       "Coursework and capstone work concentrated on computer vision, retrieval systems, and applied machine learning.",
@@ -429,6 +486,7 @@ export const skills: Skill[] = [
   { name: "C++", icon: "Cpp", category: "Languages", level: "Foundational", years: 2 },
   { name: "HTML", icon: "HTML", category: "Languages", level: "Advanced", years: 3 },
   { name: "CSS", icon: "CSS", category: "Languages", level: "Advanced", years: 3 },
+  { name: "Qlik Script", icon: "Qlik", category: "Languages", level: "Proficient", years: 1 },
 
   // Frontend
   { name: "React", icon: "React", category: "Frontend", level: "Advanced", years: 3 },
@@ -444,6 +502,12 @@ export const skills: Skill[] = [
   { name: "Firebase", icon: "Firebase", category: "Backend & Data", level: "Proficient", years: 2 },
   { name: "Streamlit", icon: "Streamlit", category: "Backend & Data", level: "Advanced", years: 2 },
   { name: "Gradio", icon: "Gradio", category: "Backend & Data", level: "Proficient", years: 1 },
+  { name: "FastAPI", icon: "FastAPI", category: "Backend & Data", level: "Proficient", years: 1 },
+  { name: "Qlik Sense", icon: "Qlik", category: "Backend & Data", level: "Proficient", years: 1 },
+  { name: "Qlik Data Flow", icon: "Qlik", category: "Backend & Data", level: "Proficient", years: 1 },
+  { name: "Power BI", category: "Backend & Data", level: "Proficient", years: 1 },
+  { name: "DAX", category: "Backend & Data", level: "Proficient", years: 1 },
+  { name: "Excel", category: "Backend & Data", level: "Proficient", years: 3 },
 
   // AI & ML
   { name: "TensorFlow", icon: "TensorFlow", category: "AI & ML", level: "Proficient", years: 2 },
@@ -451,6 +515,9 @@ export const skills: Skill[] = [
   { name: "pandas", icon: "Pandas", category: "AI & ML", level: "Advanced", years: 3 },
   { name: "NumPy", icon: "NumPy", category: "AI & ML", level: "Advanced", years: 3 },
   { name: "Matplotlib", category: "AI & ML", level: "Proficient", years: 3 },
+  { name: "Seaborn", category: "AI & ML", level: "Proficient", years: 2 },
+  { name: "LiteLLM", category: "AI & ML", level: "Proficient", years: 1 },
+  { name: "pgvector", icon: "PostgreSQL", category: "AI & ML", level: "Proficient", years: 1 },
   { name: "YOLO", icon: "Ultralytics", category: "AI & ML", level: "Advanced", years: 2 },
   { name: "nnU-Net", category: "AI & ML", level: "Proficient", years: 1 },
   { name: "OpenCV", icon: "OpenCV", category: "AI & ML", level: "Proficient", years: 2 },
@@ -465,12 +532,16 @@ export const skills: Skill[] = [
   { name: "Vercel", icon: "Vercel", category: "Cloud & DevOps", level: "Proficient", years: 2 },
   { name: "Git", icon: "Git", category: "Cloud & DevOps", level: "Advanced", years: 3 },
   { name: "GitHub", icon: "GitHub", category: "Cloud & DevOps", level: "Advanced", years: 3 },
+  { name: "Keycloak (OIDC)", icon: "Keycloak", category: "Cloud & DevOps", level: "Proficient", years: 1 },
+  { name: "Qlik Cloud", icon: "Qlik", category: "Cloud & DevOps", level: "Proficient", years: 1 },
 
   // Tools
   { name: "VS Code", category: "Tools", level: "Advanced", years: 3 },
   { name: "IntelliJ IDEA", icon: "IntelliJ", category: "Tools", level: "Proficient", years: 2 },
   { name: "Google Colab", icon: "Colab", category: "Tools", level: "Advanced", years: 3 },
   { name: "Jira", icon: "Jira", category: "Tools", level: "Proficient", years: 1 },
+  { name: "DBeaver", icon: "DBeaver", category: "Tools", level: "Proficient", years: 1 },
+  { name: "Playwright", category: "Tools", level: "Proficient", years: 1 },
 ];
 
 /**

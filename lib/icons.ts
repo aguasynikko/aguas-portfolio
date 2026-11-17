@@ -1,7 +1,9 @@
 import type { IconType } from "react-icons";
 import {
   SiCplusplus,
+  SiDbeaver,
   SiDocker,
+  SiFastapi,
   SiFirebase,
   SiGit,
   SiGithub,
@@ -14,6 +16,7 @@ import {
   SiIntellijidea,
   SiJira,
   SiJupyter,
+  SiKeycloak,
   SiNextdotjs,
   SiNodedotjs,
   SiNumpy,
@@ -24,6 +27,7 @@ import {
   SiPandas,
   SiPostgresql,
   SiPython,
+  SiQlik,
   SiRaspberrypi,
   SiResearchgate,
   SiReact,
@@ -78,6 +82,8 @@ export const iconMap: Record<string, IconType> = {
   Firebase: SiFirebase,
   Streamlit: SiStreamlit,
   Gradio: SiGradio,
+  FastAPI: SiFastapi,
+  Qlik: SiQlik,
 
   // AI & ML
   TensorFlow: SiTensorflow,
@@ -97,11 +103,13 @@ export const iconMap: Record<string, IconType> = {
   Git: SiGit,
   GitHub: SiGithub,
   RaspberryPi: SiRaspberrypi,
+  Keycloak: SiKeycloak,
 
   // Tools
   IntelliJ: SiIntellijidea,
   Colab: SiGooglecolab,
   Jira: SiJira,
+  DBeaver: SiDbeaver,
 
   // Social — Simple Icons dropped LinkedIn, so Font Awesome supplies the mark
   Linkedin: FaLinkedinIn,
