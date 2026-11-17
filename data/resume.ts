@@ -24,7 +24,7 @@ export const person: Person = {
   bio: [
     "I'm a Computer Scientist specializing in Artificial Intelligence. I work across three tracks that keep feeding each other: building AI systems, analyzing data until it says something useful, and shipping the software that puts both in front of people.",
     "On the engineering side, I shipped 15+ production modules for an internal platform serving 30+ people — architecting the React and Supabase data layer, enforcing role-based access across 25+ PostgreSQL migrations, and building an in-app AI assistant with real-time sync. On the data side, I've built end-to-end analysis tools that go from raw exploratory work through to live prediction, paired with plain-language interpretation for non-technical readers.",
-    "As a data analytics intern, I built ETL pipelines, star schema data models, and interactive business intelligence dashboards in Qlik Sense and Power BI using SQL (PostgreSQL), and developed a bilingual RAG customer assistant for retail banking with hybrid search, OIDC-secured tools, and 300+ automated tests.",
+    "As a data analytics & AI intern, I built ETL pipelines, star schema data models, and interactive business intelligence dashboards in Qlik Sense and Power BI using SQL (PostgreSQL), and developed a bilingual RAG customer assistant for retail banking with hybrid search, OIDC-secured tools, and 300+ automated tests.",
     "On the research side, I've published two IEEE papers in medical imaging and clinical NLP. What ties all of it together is the gap between something that scores well and something people can actually trust — evaluation you can defend, latency budgets you can meet, and interfaces that don't hide uncertainty.",
   ],
   photo: "/ynikko-aguas.webp",
@@ -93,7 +93,7 @@ export const navItems: NavItem[] = [
 export const experience: Experience[] = [
   {
     id: "micropinnacle",
-    role: "Data Analytics Intern",
+    role: "Data Analytics & AI Intern",
     company: "Micropinnacle Technology Corporation",
     start: "Sep. 2026",
     end: "Nov. 2026",
