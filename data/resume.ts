@@ -259,6 +259,9 @@ export const projects: Project[] = [
       "Found that late deliveries (about 8% of orders) lowered average review scores by more than 1.5 points, and recommended carrier SLA renegotiation in the highest-delay states, supported by written KPI definitions and a documented findings report on GitHub.",
     ],
     tech: ["PostgreSQL", "SQL", "Power BI", "DAX"],
+    demo:
+      "https://app.powerbi.com/view?r=eyJrIjoiZjBkNWIxNWItZWQxZC00ZjY3LTk0ZjgtZjlhOTQ5M2FlNzc3IiwidCI6ImM3ZThiNWFjLTk2YzYtNDEyMy1hNjVhLTc5MzU0M2FjZWQ0ZCIsImMiOjEwfQ%3D%3D",
+    image: "/projects/olist-ecommerce-analysis.webp",
     featured: true,
   },
   {
