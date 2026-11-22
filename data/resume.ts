@@ -83,6 +83,7 @@ export const navItems: NavItem[] = [
   { label: "Stack", href: "#skills" },
   { label: "Publications", href: "#publications" },
   { label: "Education", href: "#education" },
+  { label: "Memoir", href: "#memoir" },
   { label: "Contact", href: "#contact" },
 ];
 

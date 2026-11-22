@@ -1,7 +1,15 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Check, ChevronDown, Copy, ExternalLink, FileText } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  ChevronDown,
+  Copy,
+  ExternalLink,
+  FileText,
+} from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
 import { person } from "@/data/resume";
@@ -57,9 +65,12 @@ function CopyCitation({ pub }: { pub: Publication }) {
 export function PublicationRecord({
   pub,
   index,
+  memoirLink,
 }: {
   pub: Publication;
   index: number;
+  /** The Memoir Chapter about this paper, if one exists. */
+  memoirLink?: { href: string; label: string };
 }) {
   const reduced = useReducedMotion();
   const [open, setOpen] = useState(false);
@@ -208,6 +219,15 @@ export function PublicationRecord({
               </a>
             ))}
             <CopyCitation pub={pub} />
+            {memoirLink && (
+              <Link
+                href={memoirLink.href}
+                className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-label text-muted transition-colors duration-300 hover:text-accent"
+              >
+                Memoir: {memoirLink.label}
+                <ArrowRight aria-hidden className="size-3" />
+              </Link>
+            )}
           </div>
         </div>
       </div>

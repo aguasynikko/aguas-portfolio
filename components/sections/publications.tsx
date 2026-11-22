@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { publications } from "@/data/resume";
+import { getPublicationMemoirLinks } from "@/lib/memoir";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { Section, SectionHeading } from "@/components/ui/section";
@@ -9,7 +10,8 @@ import { PublicationRecord } from "./publication-record";
 /** Homepage cut: newest first, capped — the full index lives at /publications. */
 const HOME_LIMIT = 4;
 
-export function Publications() {
+export async function Publications() {
+  const memoirLinks = await getPublicationMemoirLinks();
   const sorted = [...publications].sort((a, b) => b.year - a.year);
   const shown = sorted.slice(0, HOME_LIMIT);
   const hasMore = sorted.length > HOME_LIMIT;
@@ -27,7 +29,7 @@ export function Publications() {
       <div>
         {shown.map((pub, i) => (
           <Reveal key={pub.id} delay={i * 0.08}>
-            <PublicationRecord pub={pub} index={i} />
+            <PublicationRecord pub={pub} index={i} memoirLink={memoirLinks[pub.id]} />
           </Reveal>
         ))}
       </div>

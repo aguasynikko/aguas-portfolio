@@ -1,4 +1,5 @@
 import { About } from "@/components/sections/about";
+import { MemoirSection } from "@/components/sections/memoir";
 import { Contact } from "@/components/sections/contact";
 import { EducationSection } from "@/components/sections/education";
 import { Experience } from "@/components/sections/experience";
@@ -19,6 +20,7 @@ export default function HomePage() {
       <Skills />
       <Publications />
       <EducationSection />
+      <MemoirSection />
       <Contact />
       <JsonLd data={publicationsJsonLd()} />
     </main>

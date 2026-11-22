@@ -11,7 +11,7 @@ export function Contact() {
     <Section id="contact">
       <SectionHeading
         id="contact"
-        index="07"
+        index="08"
         eyebrow="Contact"
         title="Let's talk."
         lead="Questions about the research, the code, or anything else on this site — my inbox is open."

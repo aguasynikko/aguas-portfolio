@@ -3,13 +3,14 @@
 import { useMemo, useState } from "react";
 import { publications } from "@/data/resume";
 import type { PublicationType } from "@/data/types";
+import type { MemoirLinks } from "@/lib/memoir";
 import { cn } from "@/lib/utils";
 import { PublicationRecord } from "@/components/sections/publication-record";
 import { Reveal } from "@/components/ui/reveal";
 
 const ALL = "All";
 
-export function PublicationsIndex() {
+export function PublicationsIndex({ memoirLinks }: { memoirLinks: MemoirLinks }) {
   const [filter, setFilter] = useState<PublicationType | typeof ALL>(ALL);
 
   const sorted = useMemo(
@@ -59,7 +60,7 @@ export function PublicationsIndex() {
       <div>
         {visible.map((pub, i) => (
           <Reveal key={pub.id} delay={i * 0.06}>
-            <PublicationRecord pub={pub} index={i} />
+            <PublicationRecord pub={pub} index={i} memoirLink={memoirLinks[pub.id]} />
           </Reveal>
         ))}
       </div>

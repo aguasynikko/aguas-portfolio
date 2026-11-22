@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { person, publications } from "@/data/resume";
 import { publicationsJsonLd } from "@/lib/jsonld";
+import { getPublicationMemoirLinks } from "@/lib/memoir";
 import { JsonLd } from "@/components/ui/json-ld";
 import { Button } from "@/components/ui/button";
 import { PublicationsIndex } from "./publications-index";
@@ -18,7 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PublicationsPage() {
+export default async function PublicationsPage() {
+  const memoirLinks = await getPublicationMemoirLinks();
   return (
     <main id="main" className="pb-12 pt-24 sm:pt-28">
       <div className="container">
@@ -46,7 +48,7 @@ export default function PublicationsPage() {
         </header>
 
         {/* Client island — the page itself stays a server component. */}
-        <PublicationsIndex />
+        <PublicationsIndex memoirLinks={memoirLinks} />
       </div>
       <JsonLd data={publicationsJsonLd()} />
     </main>
