@@ -17,8 +17,9 @@ function Exhibit({
   alt: string;
   letter: string;
   caption: string;
-  width: number;
-  height: number;
+  /** Strings in MDX: next-mdx-remote blocks `{…}` expressions by default. */
+  width: number | string;
+  height: number | string;
 }) {
   return (
     // w-fit keeps portrait photos from stretching to the column width; the
@@ -28,8 +29,8 @@ function Exhibit({
         <Image
           src={src}
           alt={alt}
-          width={width}
-          height={height}
+          width={Number(width)}
+          height={Number(height)}
           sizes="(max-width: 768px) 100vw, 720px"
           className="media-noir h-auto max-h-[70vh] w-auto max-w-full"
         />
